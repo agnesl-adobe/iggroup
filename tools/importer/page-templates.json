@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.ig.com/en"
+      ],
+      "representativeUrl": "https://www.ig.com/en",
+      "description": "",
+      "blocks": [],
+      "urlPattern": "/*"
+    }
+  ]
+}

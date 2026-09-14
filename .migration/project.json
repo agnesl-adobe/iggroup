@@ -1,0 +1,10 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "iggroup": {
+      "previewOrg": "agnesl-adobe",
+      "previewSite": "iggroup",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}
