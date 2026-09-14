@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:vlt="http://www.day.com/jcr/vault/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="vlt:PackageDefinition"
+          jcr:description="Migrated IG.com homepage content for /content/iggroup/language-masters/en"
+          group="agnesl-adobe"
+          name="iggroup-en-homepage"
+          version="1.0.0">
+    <filter jcr:primaryType="nt:unstructured">
+        <f1 jcr:primaryType="nt:unstructured" root="/content/iggroup/language-masters/en" mode="replace"/>
+    </filter>
+</jcr:root>

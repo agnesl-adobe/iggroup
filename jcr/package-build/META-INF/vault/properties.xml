@@ -5,9 +5,13 @@
     <entry key="name">iggroup-en-homepage</entry>
     <entry key="group">agnesl-adobe</entry>
     <entry key="version">1.0.0</entry>
+    <entry key="groupId">agnesl-adobe</entry>
+    <entry key="artifactId">iggroup-en-homepage</entry>
     <entry key="description">Migrated IG.com homepage content for /content/iggroup/language-masters/en (xwalk / Universal Editor).</entry>
     <entry key="packageType">content</entry>
     <entry key="requiresRoot">false</entry>
     <entry key="allowIndexDefinitions">false</entry>
     <entry key="acHandling">ignore</entry>
+    <entry key="buildCount">1</entry>
+    <entry key="createdBy">excat-migration</entry>
 </properties>
