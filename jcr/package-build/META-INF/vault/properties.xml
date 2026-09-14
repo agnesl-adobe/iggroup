@@ -11,7 +11,7 @@
     <entry key="packageType">content</entry>
     <entry key="requiresRoot">false</entry>
     <entry key="allowIndexDefinitions">false</entry>
-    <entry key="acHandling">ignore</entry>
+    <entry key="acHandling">IGNORE</entry>
     <entry key="buildCount">1</entry>
     <entry key="createdBy">excat-migration</entry>
 </properties>
