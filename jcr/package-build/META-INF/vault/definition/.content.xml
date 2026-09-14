@@ -8,6 +8,6 @@
           name="iggroup-en-homepage"
           version="1.0.0">
     <filter jcr:primaryType="nt:unstructured">
-        <f1 jcr:primaryType="nt:unstructured" root="/content/iggroup/language-masters/en" mode="replace"/>
+        <f1 jcr:primaryType="nt:unstructured" root="/content/iggroup" mode="replace"/>
     </filter>
 </jcr:root>

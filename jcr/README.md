@@ -21,7 +21,11 @@ git). An installable FileVault content package is provided:
 
 **`iggroup-en-homepage-1.0.0.zip`** — install via AEM **Package Manager**
 (`/crx/packmgr` → Upload Package → Install), or with the vlt/oakpal CLI. Its filter is
-scoped to `/content/iggroup/language-masters/en`, so it only creates/updates that page.
+scoped to `/content/iggroup` and the package carries the full page chain
+(`iggroup` → `language-masters` → `en`, all `cq:Page`), so it creates the entire
+hierarchy from scratch on an author instance where nothing under `/content/iggroup`
+exists yet. The two ancestor pages are minimal placeholders; the homepage content lives
+on the `en` page.
 
 The unzipped package sources live under `package-build/`:
 
