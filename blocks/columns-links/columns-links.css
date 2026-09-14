@@ -99,7 +99,6 @@
 @media (width >= 900px) {
   .columns-links .columns-links-row {
     grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-    row-gap: 32px;
+    gap: 32px 40px;
   }
 }

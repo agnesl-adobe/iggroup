@@ -120,6 +120,7 @@
   margin: 0;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .hero-product .hero-product-media p {
   margin: 0;
 }

@@ -50,6 +50,7 @@
 }
 
 /* Description paragraph(s) */
+/* stylelint-disable-next-line no-descending-specificity */
 .columns-promo .columns-promo-panel > p {
   margin: 0 0 16px;
   font-family: var(--body-font-family);
