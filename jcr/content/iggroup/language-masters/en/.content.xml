@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent" jcr:title="IG: Trade with the world’s No.1 CFD provider | IG International" jcr:description="IG is world's top CFD and Forex provider. We offer CFD trading on thousands of shares plus forex, indices, commodities, options and more." modelFields="[jcr:title,jcr:pagetitle,jcr:description,cq:tags,theme,pageName,pageCategory]">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider. OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider.&lt;/p&gt;"/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" image="https://www.ig.com/content/dam/publicsites/igcom/EN/images/homepageHero.png/jcr:content/renditions/original-size.webp" imageAlt="Hero homepage" model="hero-product" modelFields="[image,imageAlt,text,enableunderline,herolayout,backgroundstyle,ctalabel,ctalink,ctastyle,badge]" name="Hero Product" text="&lt;p&gt;&lt;h1&gt;Trade CFDs with the world’s No.1 provider&lt;div&gt;1&lt;/div&gt;&lt;/h1&gt;&lt;/p&gt;&lt;p&gt;Backed by 50 years of market know-how with round-the-clock support². It’s time to put your money to work.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/en/application-form&quot;&gt;application form&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&quot;/en/demo-account&quot;&gt;demo account&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Got questions? Chat with us anytime via &lt;a href&#x3D;&quot;#&quot;&gt;web chat&lt;/a&gt; or &lt;a href&#x3D;&quot;https://wa.me/message/Y3X4LB3MTP2BJ1&quot;&gt;WhatsApp&lt;/a&gt; to get started.&lt;/p&gt;"></block>
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="carousel-prices" item1="[object Object]" model="carousel-prices" modelFields="[autoplay,autoplayInterval,imageZoom]" name="Carousel Prices"></block>
+      </section_2>
+      <section_3 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Access 17,000+ markets all in one" titleType="h2"/>
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Trade a wide range of global markets 24/7, with spreads as low as 0.1 points. &lt;a href&#x3D;&quot;/en/cfd-trading&quot;&gt;View all markets&lt;/a&gt;&lt;/p&gt;"/>
+        <block sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-markets" name="Cards Markets">
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769845053/igcom/EN/images/forexNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/forex&quot;&gt;Forex&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Long or short currency pairs like EUR/USD &amp;#x26; USD/JPY.&lt;/p&gt;"></item_0>
+          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769840045/igcom/EN/images/indicesNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/indices&quot;&gt;Indices&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Trade 80+ global indices like the US 500 &amp;#x26; FTSE 100.&lt;/p&gt;"></item_1>
+          <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769839443/igcom/EN/images/sharesNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/shares&quot;&gt;Shares&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Benefit from longer trading hours on 13,000+ shares.&lt;/p&gt;"></item_2>
+          <item_3 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769838170/igcom/EN/images/commoditiesNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/commodities&quot;&gt;Commodities&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Trade popular commodities like gold, oil, and natural gas.&lt;/p&gt;"></item_3>
+          <item_4 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769838850/igcom/EN/images/cryptoNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/cryptocurrency-trading&quot;&gt;Cryptocurrencies&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Jump on the latest crypto trends, no wallet required.&lt;/p&gt;"></item_4>
+          <item_5 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" image="https://www.ig.com/content/dam/publicsites/1743769838555/igcom/EN/images/etfsNew.png" text="&lt;p&gt;&lt;h3&gt;&lt;a href&#x3D;&quot;/en/shares/etfs-trading&quot;&gt;ETFs&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;Choose from 5,400+ ETFs across a range of markets.&lt;/p&gt;"></item_5>
+        </block>
+        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/application-form" linkText="Create live account"/>
+        <button_1 sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/demo-account" linkText="Create demo account"/>
+      </section_3>
+      <section_4 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
+          <row1 jcr:primaryType="nt:unstructured">
+            <col1 jcr:primaryType="nt:unstructured">
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Refer a friend&lt;/p&gt;&lt;p&gt;Earn up to $10,000 by inviting your friends to join and trade with IG.&lt;div&gt;3&lt;/div&gt;&lt;/p&gt;"/>
+              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/refer-a-friend" linkText="Learn more"/>
+            </col1>
+            <col2 jcr:primaryType="nt:unstructured">
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Volume-based rebates&lt;/p&gt;&lt;p&gt;Benefit from rebates on your spreads or commissions when trading high volumes.&lt;/p&gt;"/>
+              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/cfd-trading/volume-based-cash-rebates" linkText="Learn more"/>
+            </col2>
+          </row1>
+        </columns>
+      </section_4>
+      <section_5 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
+          <row1 jcr:primaryType="nt:unstructured">
+            <col1 jcr:primaryType="nt:unstructured">
+              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Experience award-winning platforms" titleType="h2"/>
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;Fast, easy-to-use web platform and app&lt;/li&gt;
+                    &lt;li&gt;Access to the popular MetaTrader 4 (MT4) platform&lt;/li&gt;
+                    &lt;li&gt;Specialist platforms and charting with L2 dealer, ProRealTime &amp;#x26; TradingView&lt;/li&gt;
+                    &lt;li&gt;Comprehensive suite of alerts and risk-management tools&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/trading-platforms" linkText="trading platforms"/>
+            </col1>
+            <col2 jcr:primaryType="nt:unstructured">
+              <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://www.ig.com/content/dam/publicsites/1744619348462/igcom/EN/images/expPlatforms.png" imageAlt="Award Winning"/>
+            </col2>
+          </row1>
+        </columns>
+      </section_5>
+      <section_6 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[accent]" model="section" modelFields="[name,style]">
+        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Join 400,000+ traders who trust us" titleType="h2"/>
+        <block_1 sling:resourceType="core/franklin/components/block/v1/block" jcr:primaryType="nt:unstructured" filter="cards-stats" name="Cards Stats">
+          <item_0 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;h3&gt;17,000 +&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;markets available&lt;/p&gt;"></item_0>
+          <item_1 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;h3&gt;50 +&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;years’ experience&lt;/p&gt;"></item_1>
+          <item_2 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;h3&gt;FTSE 250&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;listed company&lt;/p&gt;"></item_2>
+          <item_3 jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/block/v1/block/item" name="Card" model="card" modelFields="[image,text]" text="&lt;p&gt;&lt;h3&gt;18&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;offices globally&lt;/p&gt;"></item_3>
+        </block_1>
+      </section_6>
+      <section_7 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Everything you need to trade the markets" titleType="h2"/>
+        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
+          <row1 jcr:primaryType="nt:unstructured">
+            <col1 jcr:primaryType="nt:unstructured">
+              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="For experienced traders" titleType="h3"/>
+              <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://www.ig.com/content/dam/publicsites/igcom/EN/images/experienceTraders.png/jcr:content/renditions/original-size.webp" imageAlt=""/>
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/trading-platforms&quot;&gt;Choose your platform&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/charges&quot;&gt;See our costs and spreads&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/weekend-trading&quot;&gt;Learn more about weekend trading&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/how-we-support-you&quot;&gt;Discover how we support you&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+            </col1>
+            <col2 jcr:primaryType="nt:unstructured">
+              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="For new traders" titleType="h3"/>
+              <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://www.ig.com/content/dam/publicsites/igcom/EN/images/news2.png/jcr:content/renditions/original-size.webp" imageAlt=""/>
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/trading-skills&quot;&gt;Learn to trade&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/markets-to-trade&quot;&gt;Discover new opportunities&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/risk-management&quot;&gt;Understand risk management&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/en/demo-account&quot;&gt;Test your trading strategies&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+            </col2>
+          </row1>
+        </columns>
+      </section_7>
+      <section_8 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" style="[grey]" model="section" modelFields="[name,style]">
+        <columns sling:resourceType="core/franklin/components/columns/v1/columns" jcr:primaryType="nt:unstructured" rows="1" columns="2">
+          <row1 jcr:primaryType="nt:unstructured">
+            <col1 jcr:primaryType="nt:unstructured">
+              <title sling:resourceType="core/franklin/components/title/v1/title" jcr:primaryType="nt:unstructured" title="Join IG" titleType="h2"/>
+              <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;Get started in 3 simple steps.&lt;/p&gt;&lt;ol&gt;
+                    &lt;li&gt;Answer some questions — Tell us a bit more about you.&lt;/li&gt;
+                    &lt;li&gt;Verify your account — This can usually be done instantly.&lt;/li&gt;
+                    &lt;li&gt;Fund and start trading — Deposit via credit card, Wise or bank transfer.&lt;/li&gt;
+                    &lt;/ol&gt;"/>
+              <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/application-form" linkText="application form"/>
+            </col1>
+            <col2 jcr:primaryType="nt:unstructured">
+              <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://www.ig.com/content/dam/publicsites/1744028670276/igcom/EN/images/joinIG.png" imageAlt="Join IG"/>
+            </col2>
+          </row1>
+        </columns>
+      </section_8>
+      <section_9 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;&lt;div&gt;1&lt;/div&gt; Based on revenue (published financial statements, August 2024).&lt;br&gt;
+                    &lt;div&gt;2&lt;/div&gt; Our highly skilled customer services are available 24 hours a day from 8am Saturday to 10pm Friday (GMT) on phone, email, or live chat to answer your trading platform enquiries.&lt;br&gt;
+                    &lt;div&gt;3&lt;/div&gt; See full &lt;a href&#x3D;&quot;/en/refer-a-friend-terms-and-conditions&quot;&gt;terms and conditions&lt;/a&gt; for more details.&lt;/p&gt;"/>
+        <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://bat.bing.com/action/0?ti&#x3D;4051597&amp;tm&#x3D;gtm002&amp;Ver&#x3D;2&amp;mid&#x3D;0d0ea5f5-97d3-418d-b0da-e413d25487ce&amp;bo&#x3D;2&amp;sid&#x3D;3ee43980b03c11f18bef83375e40f99a&amp;vid&#x3D;3ee45310b03c11f1b260195364520846&amp;vids&#x3D;0&amp;msclkid&#x3D;N&amp;pi&#x3D;1258369508&amp;lg&#x3D;en-US&amp;sw&#x3D;1920&amp;sh&#x3D;1080&amp;sc&#x3D;24&amp;tl&#x3D;IG%3A%20Trade%20with%20the%20world%E2%80%99s%20No.1%20CFD%20provider%20%7C%20IG%20International&amp;p&#x3D;https%3A%2F%2Fwww.ig.com%2Fen&amp;r&#x3D;&amp;lt&#x3D;1341&amp;evt&#x3D;pageLoad&amp;sv&#x3D;2&amp;asc&#x3D;G&amp;cdb&#x3D;AQET&amp;rn&#x3D;440820" imageAlt=""/>
+        <image_1 sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://downloads.intercomcdn.eu/i/o/f20taohh/27203/41e7b9bb3e795664389cbcce37ce/b41d0a2de0f1df6269af1b3a17c58959.png" imageAlt=""/>
+      </section_9>
+      <section_10 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]"></section_10>
+    </root>
+  </jcr:content>
+</jcr:root>
