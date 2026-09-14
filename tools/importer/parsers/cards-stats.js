@@ -62,5 +62,6 @@ export default function parse(element, { document }) {
   }
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'cards-stats', cells });
-  element.replaceWith(block);
+  // Preserve the panel title before the block as section-level default content.
+  element.replaceWith(...introNodes, block);
 }
