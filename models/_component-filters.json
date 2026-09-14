@@ -53,7 +53,49 @@
     ]
   },
   {
+    "id": "carousel-prices",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-markets",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-stats",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-promo",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-feature",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-links",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "columns-steps",
     "components": [
       "column"
     ]
