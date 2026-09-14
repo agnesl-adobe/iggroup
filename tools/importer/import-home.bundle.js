@@ -102,7 +102,37 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-markets.js
+  function extractSectionIntro(element) {
+    const grid = element.querySelector(":scope > .cmp-container > .aem-Grid") || element.querySelector(".cmp-container > .aem-Grid");
+    if (!grid) return [];
+    const introBlocks = Array.from(grid.querySelectorAll(":scope > .simple-text.parbase"));
+    const nodes = [];
+    introBlocks.forEach((block) => {
+      const inner = block.querySelector(".simple-text") || block;
+      Array.from(inner.children).forEach((child) => nodes.push(child));
+    });
+    return nodes;
+  }
+  function extractStandaloneCtas(element, document2) {
+    const CTA_LABELS = {
+      "/en/application-form": "Create live account",
+      "/en/demo-account": "Create demo account"
+    };
+    const ctas = Array.from(element.querySelectorAll(".cmp-flex-container .cta igws-cta[href], .cta igws-cta[href]"));
+    return ctas.map((cta) => {
+      const href = cta.getAttribute("href") || "#";
+      const label = (cta.textContent || "").trim() || CTA_LABELS[href] || (href.split("/").filter(Boolean).pop() || "Learn more").replace(/[-_]/g, " ");
+      const a = document2.createElement("a");
+      a.setAttribute("href", href);
+      a.textContent = label;
+      const p = document2.createElement("p");
+      p.appendChild(a);
+      return p;
+    });
+  }
   function parse3(element, { document: document2 }) {
+    const introNodes = extractSectionIntro(element);
+    const ctaNodes = extractStandaloneCtas(element, document2);
     const cards = Array.from(element.querySelectorAll(".news-card"));
     const cells = [];
     cards.forEach((card) => {
@@ -133,11 +163,21 @@ var CustomImportScript = (() => {
       return;
     }
     const block = WebImporter.Blocks.createBlock(document2, { name: "cards-markets", cells });
-    element.replaceWith(block);
+    element.replaceWith(...introNodes, block, ...ctaNodes);
   }
 
   // tools/importer/parsers/cards-stats.js
+  function extractSectionIntro2(element, document2) {
+    const title = element.querySelector(".cmp-usp-display__title");
+    if (!title) return [];
+    const text = (title.textContent || "").replace(/\s+/g, " ").trim();
+    if (!text) return [];
+    const h = document2.createElement("h2");
+    h.textContent = text;
+    return [h];
+  }
   function parse4(element, { document: document2 }) {
+    const introNodes = extractSectionIntro2(element, document2);
     const items = Array.from(element.querySelectorAll(".cmp-usp-display__content__item"));
     const cells = [];
     items.forEach((item) => {
@@ -165,11 +205,41 @@ var CustomImportScript = (() => {
       return;
     }
     const block = WebImporter.Blocks.createBlock(document2, { name: "cards-stats", cells });
-    element.replaceWith(block);
+    element.replaceWith(...introNodes, block);
   }
 
   // tools/importer/parsers/columns-promo.js
+  function extractSectionIntro3(element) {
+    const grid = element.querySelector(":scope > .cmp-container > .aem-Grid") || element.querySelector(".cmp-container > .aem-Grid");
+    if (!grid) return [];
+    const introBlocks = Array.from(grid.querySelectorAll(":scope > .simple-text.parbase"));
+    const nodes = [];
+    introBlocks.forEach((block) => {
+      const inner = block.querySelector(".simple-text") || block;
+      Array.from(inner.children).forEach((child) => nodes.push(child));
+    });
+    return nodes;
+  }
+  function extractStandaloneCtas2(element, document2) {
+    const CTA_LABELS = {
+      "/en/application-form": "Create live account",
+      "/en/demo-account": "Create demo account"
+    };
+    const ctas = Array.from(element.querySelectorAll(".cmp-flex-container .cta igws-cta[href], .cta igws-cta[href]"));
+    return ctas.map((cta) => {
+      const href = cta.getAttribute("href") || "#";
+      const label = (cta.textContent || "").trim() || CTA_LABELS[href] || (href.split("/").filter(Boolean).pop() || "Learn more").replace(/[-_]/g, " ");
+      const a = document2.createElement("a");
+      a.setAttribute("href", href);
+      a.textContent = label;
+      const p = document2.createElement("p");
+      p.appendChild(a);
+      return p;
+    });
+  }
   function parse5(element, { document: document2 }) {
+    const introNodes = extractSectionIntro3(element);
+    const ctaNodes = extractStandaloneCtas2(element, document2);
     const panels = Array.from(element.querySelectorAll(":scope .cmp-flex-container .image-background, .image-background"));
     const columns = panels.map((panel) => {
       const cell = [];
@@ -247,7 +317,19 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-links.js
+  function extractSectionIntro4(element) {
+    const grid = element.querySelector(":scope > .cmp-container > .aem-Grid") || element.querySelector(".cmp-container > .aem-Grid");
+    if (!grid) return [];
+    const introBlocks = Array.from(grid.querySelectorAll(":scope > .simple-text.parbase"));
+    const nodes = [];
+    introBlocks.forEach((block) => {
+      const inner = block.querySelector(".simple-text") || block;
+      Array.from(inner.children).forEach((child) => nodes.push(child));
+    });
+    return nodes;
+  }
   function parse7(element, { document: document2 }) {
+    const introNodes = extractSectionIntro4(element);
     const flex = element.querySelector(".cmp-flex-container") || element;
     let groups = Array.from(flex.querySelectorAll(":scope > .container.responsivegrid"));
     if (groups.length === 0) {
@@ -284,7 +366,7 @@ var CustomImportScript = (() => {
     }
     const cells = [columns];
     const block = WebImporter.Blocks.createBlock(document2, { name: "columns-links", cells });
-    element.replaceWith(block);
+    element.replaceWith(...introNodes, block);
   }
 
   // tools/importer/parsers/columns-steps.js
