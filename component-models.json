@@ -187,6 +187,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Accent Panel (IG light blue)",
+            "value": "accent"
+          },
+          {
+            "name": "Grey Panel",
+            "value": "grey"
           }
         ]
       }

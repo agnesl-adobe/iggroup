@@ -97,6 +97,8 @@
             { "name": "Primary Blue 70", "value": "bg-primary-blue-70" },
             { "name": "Neutrals 10", "value": "bg-neutrals-10" },
             { "name": "Neutrals 20", "value": "bg-neutrals-20" },
+            { "name": "Accent Panel (IG light blue)", "value": "accent" },
+            { "name": "Grey Panel", "value": "grey" },
             { "name": "Background Image", "value": "bg-image" }
           ]
         },
