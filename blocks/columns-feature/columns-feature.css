@@ -1,0 +1,41 @@
+/* columns-feature — image beside a heading + checklist + button.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.columns-feature .columns-feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.columns-feature .columns-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columns-feature .columns-feature-content > * {
+  margin: 0;
+}
+
+.columns-feature .columns-feature-content ul {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.columns-feature .columns-feature-media picture,
+.columns-feature .columns-feature-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-feature .columns-feature-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}

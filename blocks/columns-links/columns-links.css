@@ -1,0 +1,41 @@
+/* columns-links — two columns, each image + heading + arrow link list.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.columns-links .columns-links-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.columns-links .columns-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.columns-links .columns-links-col > * {
+  margin: 0;
+}
+
+.columns-links .columns-links-col picture,
+.columns-links .columns-links-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns-links .columns-links-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (width >= 900px) {
+  .columns-links .columns-links-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}

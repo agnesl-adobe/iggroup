@@ -1,0 +1,58 @@
+/* hero-product — centered text stack over a large product image below.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.hero-product.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.hero-product .hero-product-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 760px;
+  width: 100%;
+}
+
+.hero-product .hero-product-text p {
+  margin: 0;
+}
+
+/* CTA buttons sit in a row */
+.hero-product .hero-product-text .button-container {
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-product .hero-product-media {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.hero-product .hero-product-media picture,
+.hero-product .hero-product-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 600px) {
+  .hero-product.block {
+    padding: 56px 24px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-product.block {
+    padding: 72px 32px;
+    gap: 48px;
+  }
+}

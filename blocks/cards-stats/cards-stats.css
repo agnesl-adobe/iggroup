@@ -1,0 +1,33 @@
+/* cards-stats — evenly-spaced statistic figures + labels row.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.cards-stats > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.cards-stats > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.cards-stats .cards-stats-figure * {
+  margin: 0;
+}
+
+.cards-stats .cards-stats-label * {
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .cards-stats > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

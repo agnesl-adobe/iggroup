@@ -1,0 +1,41 @@
+/* carousel-prices — horizontally-scrolling live-price ticker.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.carousel-prices.block {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-prices .carousel-prices-track {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-prices .carousel-prices-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-prices .carousel-prices-tile {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.carousel-prices .carousel-prices-tile > div {
+  margin: 0;
+}
+
+.carousel-prices .carousel-prices-tile p {
+  margin: 0;
+}

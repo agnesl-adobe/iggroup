@@ -1,0 +1,40 @@
+/* columns-promo — two side-by-side promotional panels.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.columns-promo .columns-promo-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.columns-promo .columns-promo-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.columns-promo .columns-promo-panel > * {
+  margin: 0;
+}
+
+.columns-promo .columns-promo-panel picture,
+.columns-promo .columns-promo-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-promo .columns-promo-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .columns-promo .columns-promo-panel {
+    padding: 40px;
+  }
+}

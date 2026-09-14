@@ -1,0 +1,41 @@
+/* columns-steps — numbered step list beside a lifestyle image.
+   Structural / layout only; brand colors & type come from the design pass. */
+
+.columns-steps .columns-steps-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.columns-steps .columns-steps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columns-steps .columns-steps-content > * {
+  margin: 0;
+}
+
+.columns-steps .columns-steps-content ol {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.columns-steps .columns-steps-media picture,
+.columns-steps .columns-steps-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-steps .columns-steps-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
