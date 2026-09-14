@@ -22,6 +22,15 @@ export default function decorate(block) {
   });
 
   block.querySelectorAll('picture > img').forEach((img) => {
+    // Only optimise same-origin images; external CDN images (e.g. www.ig.com)
+    // must keep their absolute URL or createOptimizedPicture drops the host.
+    let sameOrigin = true;
+    try {
+      sameOrigin = new URL(img.src, window.location.href).origin === window.location.origin;
+    } catch (e) {
+      sameOrigin = true;
+    }
+    if (!sameOrigin) return;
     const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     img.closest('picture').replaceWith(optimized);
   });
