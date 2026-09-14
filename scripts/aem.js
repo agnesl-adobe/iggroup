@@ -315,6 +315,21 @@ function createOptimizedPicture(
   const { pathname } = url;
   const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
 
+  // External (cross-origin) images cannot be served through the same-origin
+  // optimization pipeline. Rewriting them to a same-origin path drops the host
+  // and 404s, so reference the original absolute URL directly instead.
+  if (url.origin !== window.location.origin) {
+    const img = document.createElement('img');
+    img.setAttribute('loading', eager ? 'eager' : 'lazy');
+    if (fetchpriority || eager) {
+      img.setAttribute('fetchpriority', fetchpriority || 'high');
+    }
+    img.setAttribute('alt', alt);
+    img.setAttribute('src', url.href);
+    picture.appendChild(img);
+    return picture;
+  }
+
   // webp
   breakpoints.forEach((br) => {
     const source = document.createElement('source');
