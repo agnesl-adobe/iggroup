@@ -8,10 +8,31 @@
  * Columns blocks use NO field hints (per hinting.md) — each column is one cell of default
  * content in a single row. Layout: two audience columns ("For experienced traders" /
  * "For new traders"), each with an image, a sub-heading and a list of arrow links.
- * The section title ("Everything you need to trade the markets") is section-level default
- * content and excluded. The decorative " —" span after each link is dropped.
+ *
+ * The section wraps a section intro (`.simple-text` h2 title "Everything you need to trade
+ * the markets") BEFORE the columns grid. It survives as section-level default content
+ * (a heading) emitted adjacent to the block, never folded into a column cell. The decorative
+ * " ↗" span after each link is dropped.
  */
+
+// Extract the section-intro heading blocks that sit at the section-grid level (direct-child
+// `.simple-text.parbase` of the section grid, before the flex/columns grid).
+function extractSectionIntro(element) {
+  const grid = element.querySelector(':scope > .cmp-container > .aem-Grid')
+    || element.querySelector('.cmp-container > .aem-Grid');
+  if (!grid) return [];
+  const introBlocks = Array.from(grid.querySelectorAll(':scope > .simple-text.parbase'));
+  const nodes = [];
+  introBlocks.forEach((block) => {
+    const inner = block.querySelector('.simple-text') || block;
+    Array.from(inner.children).forEach((child) => nodes.push(child));
+  });
+  return nodes;
+}
+
 export default function parse(element, { document }) {
+  const introNodes = extractSectionIntro(element);
+
   // Each column is a nested .container.responsivegrid inside the flex container.
   const flex = element.querySelector('.cmp-flex-container') || element;
   let groups = Array.from(flex.querySelectorAll(':scope > .container.responsivegrid'));
@@ -60,5 +81,6 @@ export default function parse(element, { document }) {
   const cells = [columns];
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-links', cells });
-  element.replaceWith(block);
+  // Preserve the section intro heading before the block as section-level default content.
+  element.replaceWith(...introNodes, block);
 }
