@@ -17,11 +17,25 @@ Contents: 11 sections, all 8 homepage block variants (`hero-product`,
 ### To ingest into AEM
 
 This XML must be installed into the AEM author instance (it is not delivered from
-git). Either:
+git). An installable FileVault content package is provided:
 
-- wrap it in a content package (`jcr_root/content/iggroup/language-masters/en/.content.xml`
-  plus `META-INF/vault/filter.xml` scoped to that path) and install via Package Manager, or
-- open the page in the Universal Editor against the author instance and author/save it.
+**`iggroup-en-homepage-1.0.0.zip`** — install via AEM **Package Manager**
+(`/crx/packmgr` → Upload Package → Install), or with the vlt/oakpal CLI. Its filter is
+scoped to `/content/iggroup/language-masters/en`, so it only creates/updates that page.
+
+The unzipped package sources live under `package-build/`:
+
+```
+package-build/
+├── META-INF/vault/{filter.xml, properties.xml, config.xml}
+└── jcr_root/content/iggroup/language-masters/en/.content.xml
+```
+
+To rebuild the zip after editing `.content.xml`, re-zip the `package-build` contents so
+that `META-INF/` and `jcr_root/` sit at the archive root.
+
+Alternatively, open the page in the **Universal Editor** against the author instance and
+author/save it.
 
 Once the page exists in AEM at that path, `admin.hlx.page` `preview` + `publish` will
 surface it to `*.aem.page` / `*.aem.live`.

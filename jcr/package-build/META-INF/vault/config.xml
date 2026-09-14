@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vaultfs version="1.1">
+    <aggregates>
+        <aggregate type="filevault" title="Vault FS Aggregates"/>
+    </aggregates>
+    <handlers>
+        <handler type="file"/>
+        <handler type="folder"/>
+        <handler type="generic"/>
+    </handlers>
+</vaultfs>
