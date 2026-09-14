@@ -1,40 +1,127 @@
-/* hero-product — centered text stack over a large product image below.
-   Structural / layout only; brand colors & type come from the design pass. */
+/* hero-product — centered text stack (heading, copy, CTA row, chat link)
+   over a large product image below.
+   Values extracted from source: https://www.ig.com/en (.cmp-hero-section). */
 
 .hero-product.block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   gap: 32px;
-  padding: 40px 16px;
+  padding: 24px 0 0;
   box-sizing: border-box;
+  text-align: center;
 }
 
+/* --- Text stack --- */
 .hero-product .hero-product-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  max-width: 760px;
+  gap: 24px;
+  max-width: 1060px;
   width: 100%;
 }
 
-.hero-product .hero-product-text p {
+.hero-product .hero-product-text h1 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -1.12px;
+  color: var(--text-color);
+}
+
+.hero-product .hero-product-text h1 sup {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+.hero-product .hero-product-text > p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* Supporting copy (first plain paragraph) reads slightly larger */
+.hero-product .hero-product-text > p:first-of-type {
+  font-size: 20px;
+}
+
+/* Chat / plain-link paragraph — IG blue inline links */
+.hero-product .hero-product-text > p a:any-link {
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: 400;
+  white-space: normal;
+}
+
+.hero-product .hero-product-text > p a:any-link:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* IG's inline chat links have no trailing chevron — suppress the global
+   Font Awesome arrow that a::after adds. */
+.hero-product .hero-product-text > p a::after {
+  content: none !important;
+}
+
+/* --- CTA row (two pill buttons side by side) --- */
+.hero-product .hero-product-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
   margin: 0;
 }
 
-/* CTA buttons sit in a row */
-.hero-product .hero-product-text .button-container {
-  display: inline-flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
+.hero-product .hero-product-cta .button-container {
+  margin: 0;
 }
 
+/* Primary CTA — solid IG red pill */
+.hero-product .hero-product-cta a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 24px !important;
+  margin: 0 !important;
+  border: 1px solid var(--brand-theme-color) !important;
+  border-radius: 72px !important;
+  background-color: var(--brand-theme-color) !important;
+  color: var(--text-light) !important;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Secondary CTA — outlined dark pill on white */
+.hero-product .hero-product-cta .button-container.secondary a.button:any-link {
+  background-color: transparent !important;
+  border: 1px solid var(--text-color) !important;
+  color: var(--text-color) !important;
+}
+
+.hero-product .hero-product-cta .button-container.secondary a.button:any-link:hover {
+  background-color: var(--text-color) !important;
+  color: var(--text-light) !important;
+}
+
+/* --- Product image --- */
 .hero-product .hero-product-media {
   width: 100%;
-  max-width: 1000px;
+  margin: 0;
+}
+
+.hero-product .hero-product-media p {
+  margin: 0;
 }
 
 .hero-product .hero-product-media picture,
@@ -42,17 +129,33 @@
   display: block;
   width: 100%;
   height: auto;
+  object-fit: cover;
+  border-radius: 0;
 }
 
-@media (width >= 600px) {
-  .hero-product.block {
-    padding: 56px 24px;
-  }
+/* Disable the global picture "shine" hover sweep on the hero image */
+.hero-product .hero-product-media picture::before {
+  content: none;
 }
 
 @media (width >= 900px) {
   .hero-product.block {
-    padding: 72px 32px;
-    gap: 48px;
+    gap: 40px;
+    padding: 24px 0 0;
+  }
+
+  .hero-product .hero-product-text {
+    gap: 40px;
+  }
+
+  .hero-product .hero-product-text h1 {
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -1.92px;
+  }
+
+  .hero-product .hero-product-text > p:first-of-type {
+    font-size: 20px;
+    line-height: 1.2;
   }
 }

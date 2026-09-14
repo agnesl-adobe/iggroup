@@ -2,9 +2,9 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 
 /**
  * hero-product — product-intro hero.
- * Centered text stack (heading, supporting copy, CTA buttons, chat/plain link)
- * with a large product image below. Authored order is normalised so the text
- * always renders first and the media second.
+ * Centered text stack (heading, supporting copy, CTA buttons in a row, chat
+ * link) with a large product image below. Authored order is normalised so the
+ * text always renders first and the media second.
  *
  * @param {Element} block
  */
@@ -20,15 +20,36 @@ export default function decorate(block) {
 
   if (textCell) {
     textCell.classList.add('hero-product-text');
+
+    // Group consecutive CTA button-containers into a single horizontal row and
+    // mark the second (and any later) CTA as the outlined secondary variant.
+    const ctaParas = [...textCell.querySelectorAll(':scope > p.button-container')];
+    if (ctaParas.length) {
+      const ctaRow = document.createElement('div');
+      ctaRow.className = 'hero-product-cta';
+      ctaParas[0].before(ctaRow);
+      ctaParas.forEach((p, i) => {
+        if (i > 0) p.classList.add('secondary');
+        ctaRow.append(p);
+      });
+    }
+
     block.append(textCell);
   }
 
   if (mediaCell) {
     mediaCell.classList.add('hero-product-media');
     const img = mediaCell.querySelector('img');
-    if (img) {
-      const optimized = createOptimizedPicture(img.src, img.alt, true, [{ width: '1200' }]);
+    // Only run through the EDS optimizer for same-origin assets. The authored
+    // image may point at an absolute (external DAM) URL — rewriting that to a
+    // relative path would 404, so leave external pictures untouched.
+    if (img && img.src && img.src.startsWith(window.location.origin)) {
+      const optimized = createOptimizedPicture(img.src, img.alt, true, [{ width: '1600' }]);
       mediaCell.querySelector('picture')?.replaceWith(optimized);
+    }
+    if (img) {
+      img.setAttribute('loading', 'eager');
+      img.setAttribute('fetchpriority', 'high');
     }
     block.append(mediaCell);
   }

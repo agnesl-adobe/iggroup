@@ -1,3 +1,4 @@
+@import url('brand.css');
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -43,25 +44,25 @@
   --footer-background-color: var(--brand-footer-background-color, #000);
   --footer-text-color: var(--brand-footer-text-color, #ffffff);
   
-  /* fonts */
-  --body-font-family: 'Adobe Clean', roboto, roboto-fallback, sans-serif;
-  --heading-font-family: 'Adobe Clean Bold', roboto-condensed, roboto-condensed-fallback, sans-serif;
-  --light-font-family: 'Adobe Clean Light', roboto, roboto-fallback, sans-serif;
-  --extra-font-family: 'Adobe Clean Extra Bold', roboto, roboto-fallback, sans-serif;
-  --black-font-family: 'Adobe Clean Black', roboto, roboto-fallback, sans-serif;
+  /* fonts — IG brand (Matter SQ) */
+  --body-font-family: "Matter SQ", arial, sans-serif;
+  --heading-font-family: "Matter SQ", arial, sans-serif;
+  --light-font-family: "Matter SQ", arial, sans-serif;
+  --extra-font-family: "Matter SQ", arial, sans-serif;
+  --black-font-family: "Matter SQ", arial, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes — IG brand (mobile-first base) */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
   /* numbers */
   --border-radius-none: 0rem;
@@ -119,13 +120,13 @@
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
 
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
+    /* heading sizes — IG brand (desktop) */
+    --heading-font-size-xxl: 42px;
     --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
+    --heading-font-size-l: 30px;
     --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
   }
 }
 
@@ -419,10 +420,13 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   scroll-margin: 40px;
 }
+
+h1 { letter-spacing: -0.03em; }
 
 h1 {
   font-size: var(--heading-font-size-xxl);
@@ -1111,3 +1115,100 @@ table {
   --link-hover-color: #9A3412;  /* darker hover */
 }
  */
+
+/* ============================================================
+   IG brand overrides — buttons, links, sections
+   ============================================================ */
+
+/* IG buttons are pill-shaped. Primary = solid red, secondary = outlined.
+   Override the boilerplate's rounded-rect + Font Awesome arrow styling. */
+main .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+main a.button:any-link,
+main .cta-button a.button,
+main .cta-button-secondary a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px !important;
+  margin: 0 !important;
+  border-radius: 72px !important;
+  border: 1px solid var(--brand-theme-color) !important;
+  background-color: var(--brand-theme-color) !important;
+  color: var(--text-light) !important;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Remove the Font Awesome chevron IG doesn't use on filled CTAs */
+main a.button::after,
+main .cta-button a.button::after,
+main .cta-button-secondary a.button::after {
+  content: none !important;
+}
+
+main a.button:any-link:hover,
+main .cta-button a.button:hover {
+  background-color: var(--brand-link-hover-color) !important;
+  border-color: var(--brand-link-hover-color) !important;
+  color: var(--text-light) !important;
+  transform: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+/* Secondary / demo CTA — outlined dark on white */
+main .cta-button-secondary a.button,
+main .button-container.secondary a.button {
+  background-color: transparent !important;
+  border: 1px solid var(--text-color) !important;
+  color: var(--text-color) !important;
+}
+
+main .cta-button-secondary a.button:hover,
+main .button-container.secondary a.button:hover {
+  background-color: var(--text-color) !important;
+  color: var(--text-light) !important;
+}
+
+/* Plain inline links in content (e.g. "View all markets") — IG blue, no arrow */
+main a:any-link {
+  color: var(--link-color);
+}
+
+main a:any-link:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Section style variants from section metadata */
+main .section.accent {
+  background-color: var(--brand-accent-panel-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 56px 0;
+}
+
+main .section.grey {
+  background-color: var(--brand-light-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 56px 0;
+}
+
+/* Rounded panel look for grey/accent single-block sections (IG uses rounded cards) */
+main .section.accent > div,
+main .section.grey > div {
+  border-radius: 16px;
+}
