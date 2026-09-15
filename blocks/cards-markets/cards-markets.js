@@ -32,7 +32,9 @@ export default function decorate(block) {
     if (!IMG_URL.test(href)) return;
     const img = document.createElement('img');
     img.src = href;
-    img.alt = (a.getAttribute('title') || a.textContent || '').trim();
+    // Use the title as alt; never the link text (which is the raw URL).
+    const title = (a.getAttribute('title') || '').trim();
+    img.alt = title && !/^https?:\/\//i.test(title) ? title : '';
     img.setAttribute('loading', 'lazy');
     a.replaceWith(img);
   });

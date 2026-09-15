@@ -45,15 +45,16 @@ export default function decorate(block) {
       mediaImageAlt = (lone.getAttribute('title') || lone.textContent || '').trim();
       return;
     }
-    // Collect any real content (heading, paragraph, list, or link) in order.
-    if (cell.querySelector('h1, h2, h3, h4, h5, h6, p, ul, ol, a')) {
+    // Collect real prose only — a cell that carries a heading, paragraph, or
+    // list. UE config-field cells render as bare text (e.g. "true", "default")
+    // with no block-level element; skip those so they don't leak into the copy.
+    if (cell.querySelector('h1, h2, h3, h4, h5, h6, p, ul, ol')) {
       [...cell.childNodes].forEach((n) => {
-        if (n.nodeType === Node.ELEMENT_NODE || (n.textContent && n.textContent.trim())) {
-          proseNodes.push(n);
-        }
+        // Keep element nodes and non-empty text, but drop stray bare-text
+        // config values (a text node not inside any element).
+        if (n.nodeType === Node.ELEMENT_NODE) proseNodes.push(n);
       });
     }
-    // Empty config-field cells (herolayout, ctastyle, "true", …) are ignored.
   });
 
   block.textContent = '';
