@@ -46,9 +46,11 @@
   color: var(--text-color);
 }
 
-/* Supporting copy (first plain paragraph) reads slightly larger */
+/* Supporting copy (first plain paragraph) reads slightly larger and is
+   constrained so it wraps to two lines like ig.com (breaks at round-the-clock) */
 .hero-product .hero-product-text > p:first-of-type {
   font-size: 20px;
+  max-width: 620px;
 }
 
 /* Chat / plain-link paragraph — IG blue inline links */

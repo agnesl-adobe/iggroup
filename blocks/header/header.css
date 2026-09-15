@@ -620,6 +620,25 @@ header nav .nav-tools .nav-search {
   color: #101010;
 }
 
+/* keep tools (language, CTA, search) at their natural size and let the menu
+   absorb the horizontal squeeze, so the CTA never wraps/overflows downward */
+@media (width >= 900px) {
+  header nav .nav-sections {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  header nav .nav-tools {
+    flex: 0 0 auto;
+  }
+
+  header nav .nav-tools .button-container,
+  header nav .nav-tools .lang-switcher,
+  header nav .nav-tools .nav-search {
+    flex: 0 0 auto;
+  }
+}
+
 /* keep the CTA from overflowing narrow viewports */
 @media (width < 900px) {
   header nav .nav-tools {
