@@ -485,3 +485,23 @@ header nav .nav-tools .lang-switcher { display: inline-flex; }
   }
 
 }
+
+/* IG-style solid black header bar */
+header .nav-wrapper {
+  background-color: #000;
+}
+
+/* Keep the (square) IG mark within the bar height */
+header nav .nav-brand img {
+  width: auto;
+  height: 40px;
+}
+
+/* Space the primary menu items horizontally on desktop */
+@media (width >= 900px) {
+  header nav .nav-sections .default-content-wrapper > ul {
+    display: flex;
+    gap: 28px;
+    margin: 0;
+  }
+}
