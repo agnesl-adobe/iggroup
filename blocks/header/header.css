@@ -544,7 +544,7 @@ header nav { background: #fff; }
 
 body.wehealthcare-theme header nav .nav-sections ul > li > a {
   color: #101010;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 header nav .nav-brand img {
@@ -556,10 +556,12 @@ header nav .nav-brand img {
 header nav .nav-tools .button {
   background: #e11b22;
   color: #fff;
-  padding: 9px 18px;
-  border-radius: 20px;
+  padding: 8px 18px;
+  border-radius: 22px;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
   display: inline-block;
 }
 
@@ -576,6 +578,7 @@ header nav .nav-tools .button {
 .header-disclaimer {
   background: #000;
   width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .header-disclaimer-inner {
@@ -615,4 +618,20 @@ header nav .nav-tools .nav-search {
   align-items: center;
   cursor: pointer;
   color: #101010;
+}
+
+/* keep the CTA from overflowing narrow viewports */
+@media (width < 900px) {
+  header nav .nav-tools {
+    gap: 10px;
+  }
+
+  header nav .nav-tools .button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  header nav .nav-tools .nav-search {
+    display: none;
+  }
 }

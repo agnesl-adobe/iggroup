@@ -479,11 +479,11 @@ export default async function decorate(block) {
       <div class="section nav-sections">
         <div class="default-content-wrapper">
           <ul>
-            <li><a href="/en/cfd-trading">Trading</a></li>
-            <li><a href="/en/trading-platforms">Trading platforms</a></li>
-            <li><a href="/en/about-us">About us</a></li>
-            <li><a href="/en/market-analysis">Market analysis</a></li>
-            <li><a href="/en/learning">Learning</a></li>
+            <li><a href="https://www.ig.com/en/markets-to-trade">Trading</a></li>
+            <li><a href="https://www.ig.com/en/trading-platforms">Trading platforms</a></li>
+            <li><a href="https://www.ig.com/en/about-us">About us</a></li>
+            <li><a href="https://www.ig.com/en/ig-financial-markets">Market analysis</a></li>
+            <li><a href="https://www.ig.com/en/trading-skills">Learning</a></li>
           </ul>
         </div>
       </div>
