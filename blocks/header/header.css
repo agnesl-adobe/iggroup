@@ -487,9 +487,19 @@ header nav .nav-tools .lang-switcher { display: inline-flex; }
 }
 
 /* ===== IG-style two-tier header ===== */
-/* keep the whole header pinned but in-flow (no content overlap) */
-header .nav-wrapper {
+/* The boilerplate makes <header> position:fixed with a capped height, which
+   overlaps page content — our 3-tier header is taller than --nav-height. Make
+   the header itself sticky + auto-height so it reserves its full space and
+   never covers content (and still pins + collapses on scroll). */
+header {
   position: sticky;
+  top: 0;
+  height: auto;
+  min-height: 0;
+}
+
+header .nav-wrapper {
+  position: relative;
   top: 0;
   background: #fff;
 }
