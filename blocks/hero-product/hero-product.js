@@ -68,13 +68,28 @@ export default function decorate(block) {
     textWrap.className = 'hero-product-text';
     proseNodes.forEach((n) => textWrap.append(n));
 
-    // Footnote markers were imported as <div>N</div> inside the heading; render
-    // them as superscripts (e.g. "provider¹").
-    textWrap.querySelectorAll('h1 div, h2 div, h3 div').forEach((d) => {
-      if (/^\d{1,2}$/.test(d.textContent.trim())) {
-        const sup = document.createElement('sup');
-        sup.textContent = d.textContent.trim();
-        d.replaceWith(sup);
+    // Footnote markers need to render as superscripts (e.g. "provider¹").
+    // They arrive in two shapes depending on delivery:
+    textWrap.querySelectorAll('h1, h2, h3').forEach((hd) => {
+      // (a) as a child <div>N</div> (Universal Editor / raw HTML)
+      hd.querySelectorAll(':scope > div').forEach((d) => {
+        if (/^\d{1,2}$/.test(d.textContent.trim())) {
+          const sup = document.createElement('sup');
+          sup.textContent = d.textContent.trim();
+          d.replaceWith(sup);
+        }
+      });
+      // (b) collapsed into a trailing digit stuck to the last word on the live
+      // site (e.g. "provider1") — split it off and superscript it.
+      const last = hd.lastChild;
+      if (last && last.nodeType === Node.TEXT_NODE) {
+        const m = last.textContent.match(/^(.*[a-zA-Z])(\d{1,2})$/);
+        if (m) {
+          last.textContent = m[1];
+          const sup = document.createElement('sup');
+          sup.textContent = m[2];
+          hd.append(sup);
+        }
       }
     });
 
