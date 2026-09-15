@@ -24,6 +24,19 @@ export default function decorate(block) {
     ul.append(li);
   });
 
+  // The icon field may be delivered as a bare link to the (external) asset URL
+  // rather than a <picture> — turn image-links in the icon cell into <img>.
+  const IMG_URL = /\.(png|jpe?g|gif|webp|svg|avif)(\?|#|$)|\/is\/image\/|jcr:content\/renditions/i;
+  ul.querySelectorAll('.cards-markets-icon a').forEach((a) => {
+    const href = a.getAttribute('href') || '';
+    if (!IMG_URL.test(href)) return;
+    const img = document.createElement('img');
+    img.src = href;
+    img.alt = (a.getAttribute('title') || a.textContent || '').trim();
+    img.setAttribute('loading', 'lazy');
+    a.replaceWith(img);
+  });
+
   ul.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '400' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
