@@ -542,9 +542,15 @@ header .nav-wrapper {
 /* white main nav */
 header nav { background: #fff; }
 
-body.wehealthcare-theme header nav .nav-sections ul > li > a {
+/* Primary menu: light grey, thin weight (applies regardless of page theme;
+   the base rule colours it with --nav-text-color which is #000 here). */
+header nav .nav-sections ul > li > a {
   color: #4d4d4d;
   font-weight: 300;
+}
+
+header nav .nav-sections ul > li > a:hover {
+  color: #0a0a0a;
 }
 
 header nav .nav-brand img {
