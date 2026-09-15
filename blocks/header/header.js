@@ -465,11 +465,41 @@ export default async function decorate(block) {
   //console.log("navPath header: ", navPath);
   const fragment = await loadFragment(navPath);
 
+  // Code-level fallback nav so the header always renders even when no nav
+  // document is available (e.g. content not yet ingested into the environment).
+  let navSource = fragment;
+  if (!navSource || !navSource.firstElementChild) {
+    navSource = document.createElement('div');
+    navSource.innerHTML = `
+      <div class="section nav-brand">
+        <div class="default-content-wrapper">
+          <p><picture><img src="https://a.c-dn.net/c/content/dam/publicsites/igcom/uk/images/IG_Logo_RedSquare.svg" alt="IG"></picture></p>
+        </div>
+      </div>
+      <div class="section nav-sections">
+        <div class="default-content-wrapper">
+          <ul>
+            <li><a href="/en/cfd-trading">Trading</a></li>
+            <li><a href="/en/trading-platforms">Trading platforms</a></li>
+            <li><a href="/en/about-us">About us</a></li>
+            <li><a href="/en/market-analysis">Market analysis</a></li>
+            <li><a href="/en/learning">Learning</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section nav-tools">
+        <div class="default-content-wrapper">
+          <p class="button-container"><a class="button" href="/en/login">Log in</a></p>
+          <p class="button-container"><a class="button" href="/en/application-form">Create live account</a></p>
+        </div>
+      </div>`;
+  }
+
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  while (fragment && fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  while (navSource && navSource.firstElementChild) nav.append(navSource.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
