@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BEST-EFFORT reconstruction of the AEM Edge Delivery site configuration node
+  for agnesl-adobe/iggroup, rebuilt from fstab.yaml + the Config Service
+  (admin.hlx.page/config/agnesl-adobe/sites/iggroup.json, version 8).
+
+  ⚠️ UNVERIFIED: the exact JCR shape produced by the EDS site-setup wizard is
+  environment-specific and not documented; this node is a candidate to inspect,
+  not a guaranteed match. Prefer re-running EDS site-setup if available.
+
+  paths.json maps /content/iggroup/configuration -> /.helix/config.json, i.e.
+  this node supplies the fstab/mountpoint config for the site.
+-->
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="core/franklin/components/configuration/v1/configuration">
+    <mountpoints jcr:primaryType="nt:unstructured">
+        <item jcr:primaryType="nt:unstructured"
+              path="/"
+              url="https://author-p179457-e1900808.adobeaemcloud.com/bin/franklin.delivery/agnesl-adobe/iggroup/main"
+              type="markup"
+              suffix=".html"/>
+    </mountpoints>
+</jcr:root>

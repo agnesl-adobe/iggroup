@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!-- Narrowly scoped to ONLY the configuration node, merge mode.
+         Cannot affect the en homepage or any other sibling under
+         /content/iggroup. -->
+    <filter root="/content/iggroup/configuration" mode="merge"/>
+</workspaceFilter>
