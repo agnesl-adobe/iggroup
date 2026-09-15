@@ -685,3 +685,5 @@ export default async function decorate(block) {
       console.debug('search icon mask init skipped', e);
     }
 }
+
+/* code-sync nudge 1789485455 */
