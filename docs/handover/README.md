@@ -9,16 +9,19 @@ AEM Edge Delivery Services (org `agnesl-adobe`, site `iggroup`, Universal Editor
 | Developer | Developers & technical team | `DEVELOPER-GUIDE.pdf` (`DEVELOPER-GUIDE.html`) |
 | Admin | Site administrators & operations | `ADMIN-GUIDE.pdf` (`ADMIN-GUIDE.html`) |
 
-## Go-live status
+## Go-live status — ✅ LIVE
 
-Everything on the repo / Edge Delivery side is complete: content migrated, 8 custom
-blocks built and styled, import infrastructure, model fixes, and an installed JCR content
-package (page exists at `/content/iggroup/language-masters/en` and renders in the
-Universal Editor).
+The homepage is **published and serving** at
+`https://main--iggroup--agnesl-adobe.aem.live/` (preview at `…aem.page/`), mapped to the
+site root `/`. The earlier blocker — `iggroup` not registered as an Edge Delivery site on
+author `p179457-e1900808` — was resolved by completing the EDS site registration
+(`/conf/iggroup` cloud config); preview + publish were then run successfully.
 
-**One blocker remains — an AEM instance-side provisioning task, not a repo change.**
-The Edge Delivery content-services servlet is not installed on author environment
-`p179457-e1900808`: `…/bin/franklin.delivery/agnesl-adobe/iggroup/main/en.html` returns a
-Sling default 404, so nothing serves on `main--iggroup--agnesl-adobe.aem.page/`. See the
-**Admin guide** for full proof, the Cloud Manager action item, and the done-when
-criterion. Preview + publish is staged and runs immediately once that endpoint returns 200.
+All blocks render with their brand styling, including the columns variants
+(promo/feature/links/steps), which are applied at runtime by a signature-detection tag in
+the base `columns` block (see the **Developer guide**).
+
+**One operational item remains (not a code fix):** IG's image URLs
+(`a.c-dn.net`, `www.ig.com/content/dam/…`) are hotlink-blocked (HTTP 403) from the
+`aem.live` origin, so images don't display on the delivered site. Re-host the assets on the
+IG production domain or migrate them into this project's DAM. See the **Admin guide**.

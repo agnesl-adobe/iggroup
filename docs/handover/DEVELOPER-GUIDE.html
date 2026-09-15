@@ -1,18 +1,22 @@
 <body>
   <main>
     <h1>IG.com Homepage Migration - Developer Guide</h1>
-    <p>Complete technical guide for developers taking over the IG.com homepage migration on AEM Edge Delivery Services (xwalk / Universal Editor).</p>
+    <p>Complete technical guide for developers taking over the IG.com homepage
+       migration to AEM Edge Delivery Services. The site is live at
+       <a href="https://main--iggroup--agnesl-adobe.aem.live/">https://main--iggroup--agnesl-adobe.aem.live/</a>.</p>
     <h2>What's Inside</h2>
     <ul>
-      <li>Quick Reference &amp; Architecture Overview (repoless xwalk setup, E-L-D loading)</li>
-      <li>Local Development Setup (repoless <code>--pages-url</code>, <code>build:json</code>, linting)</li>
-      <li>Design System (Matter SQ web font, IG brand tokens, heading scale, pill CTAs, section variants)</li>
-      <li>Blocks Reference (8 custom homepage blocks)</li>
-      <li>Universal Editor Models &amp; component JSON build</li>
-      <li>Content Import Pipeline (parsers, transformers, import script)</li>
-      <li>JCR Generation Pipeline (helix-md2jcr, FileVault package install)</li>
-      <li>Scripts &amp; Integrations (Adobe Target, delayed.js)</li>
-      <li>Common Development Tasks &amp; Troubleshooting</li>
+      <li>Status: LIVE — site registration, preview/publish, and the resolved go-live blocker</li>
+      <li>Quick Reference and Environments (standard single-site setup)</li>
+      <li>Architecture Overview and Three-Phase (E-L-D) Loading</li>
+      <li>Local Development Setup and Linting</li>
+      <li>Design System — brand.css, Matter SQ font, brand colors, tokens, breakpoints, section styles</li>
+      <li>Blocks Reference — the 8 custom homepage blocks plus the header</li>
+      <li>Columns Variants — signature detection in the base columns block (authoritative for live render)</li>
+      <li>External Image-Link Handling — hero-product.js and cards-markets.js</li>
+      <li>Universal Editor model / build:json workflow</li>
+      <li>Import pipeline (tools/importer) and JCR generation</li>
+      <li>Common Development Tasks and Troubleshooting (incl. the a.c-dn.net 403 hotlink issue)</li>
     </ul>
     <h2>Download</h2>
     <p><strong>Download the full PDF guide:</strong> <a href="./DEVELOPER-GUIDE.pdf">DEVELOPER-GUIDE.pdf</a></p>
