@@ -45,6 +45,9 @@ export default function decorate(block) {
       mediaImageAlt = (lone.getAttribute('title') || lone.textContent || '').trim();
       return;
     }
+    // Skip boolean config-field cells (e.g. enableunderline) that render as a
+    // lone "true"/"false" — even when wrapped in a <p> — so they don't leak.
+    if (/^(true|false)$/i.test(cell.textContent.trim())) return;
     // Collect real prose only — a cell that carries a heading, paragraph, or
     // list. UE config-field cells render as bare text (e.g. "true", "default")
     // with no block-level element; skip those so they don't leak into the copy.
@@ -64,6 +67,16 @@ export default function decorate(block) {
     const textWrap = document.createElement('div');
     textWrap.className = 'hero-product-text';
     proseNodes.forEach((n) => textWrap.append(n));
+
+    // Footnote markers were imported as <div>N</div> inside the heading; render
+    // them as superscripts (e.g. "provider¹").
+    textWrap.querySelectorAll('h1 div, h2 div, h3 div').forEach((d) => {
+      if (/^\d{1,2}$/.test(d.textContent.trim())) {
+        const sup = document.createElement('sup');
+        sup.textContent = d.textContent.trim();
+        d.replaceWith(sup);
+      }
+    });
 
     // Group the CTA button-containers into one horizontal row; mark the second
     // (and later) CTA as the outlined secondary variant.
