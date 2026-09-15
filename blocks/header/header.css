@@ -571,3 +571,48 @@ header nav .nav-tools .button {
     margin: 0;
   }
 }
+
+/* top risk-warning strip (white text on black) */
+.header-disclaimer {
+  background: #000;
+  width: 100%;
+}
+
+.header-disclaimer-inner {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 10px 32px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #e6e6e6;
+  text-align: center;
+}
+
+/* tools row: flatten the content wrapper so language, CTA and search align */
+header nav .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+header nav .nav-tools .default-content-wrapper {
+  display: contents;
+}
+
+header nav .nav-tools .button-container {
+  margin: 0;
+  order: 2;
+}
+
+header nav .nav-tools .lang-switcher {
+  order: 1;
+  margin: 0;
+}
+
+header nav .nav-tools .nav-search {
+  order: 3;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #101010;
+}

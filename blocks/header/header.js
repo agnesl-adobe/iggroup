@@ -473,7 +473,7 @@ export default async function decorate(block) {
     navSource.innerHTML = `
       <div class="section nav-brand">
         <div class="default-content-wrapper">
-          <p><picture><img src="https://a.c-dn.net/c/content/dam/publicsites/igcom/IG_Red_Logo_White_BG.svg" alt="IG"></picture></p>
+          <p><picture><img src="https://www.ig.com/etc.clientlibs/settings/wcm/designs/onedomain/1788752311000/clientlibs_resources/resources/images/logos/IG_LOGO.svg" alt="IG"></picture></p>
         </div>
       </div>
       <div class="section nav-sections">
@@ -490,6 +490,9 @@ export default async function decorate(block) {
       <div class="section nav-tools">
         <div class="default-content-wrapper">
           <p class="button-container"><a class="button" href="/en/application-form">Create live account</a></p>
+          <span class="nav-search" role="button" tabindex="0" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg>
+          </span>
         </div>
       </div>`;
   }
@@ -639,6 +642,11 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  // IG-style black risk-warning strip at the very top
+  const disclaimerBar = document.createElement('div');
+  disclaimerBar.className = 'header-disclaimer';
+  disclaimerBar.innerHTML = '<div class="header-disclaimer-inner">OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider.</div>';
+  navWrapper.append(disclaimerBar);
   // IG-style black utility strip above the main nav
   const utilityBar = document.createElement('div');
   utilityBar.className = 'header-utility';
