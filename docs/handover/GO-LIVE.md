@@ -1,5 +1,14 @@
 # Go-Live blocker & Adobe support request
 
+## ✅ RESOLVED (2026-09-15)
+Fixed by **adding an Edge Delivery Services configuration for `iggroup` in AEM**
+(Tools → Cloud Services → Edge Delivery Services Configuration → create one for
+the iggroup site, i.e. the `/conf/iggroup` cloud config). Once that config
+existed and the site's `cq:conf` pointed at it, `franklin.delivery/agnesl-adobe/iggroup/main/index.html`
+resolved and the site went live. The support request below is kept for the record.
+
+---
+
 **Status:** The site is fully built and renders correctly in the aemcoder preview
 (`preview-aemcoder.adobe.io/content/en`). Public EDS URLs
 (`main--iggroup--agnesl-adobe.aem.page/`) are blocked by **one** AEM-side
