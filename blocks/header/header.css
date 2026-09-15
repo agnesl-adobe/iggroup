@@ -486,18 +486,84 @@ header nav .nav-tools .lang-switcher { display: inline-flex; }
 
 }
 
-/* IG-style solid black header bar */
+/* ===== IG-style two-tier header ===== */
+/* keep the whole header pinned but in-flow (no content overlap) */
 header .nav-wrapper {
-  background-color: #000;
+  position: sticky;
+  top: 0;
+  background: #fff;
 }
 
-/* Keep the (square) IG mark within the bar height */
+/* black utility strip above the main nav */
+.header-utility {
+  background: #0a0a0a;
+  width: 100%;
+}
+
+.header-utility-inner {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 9px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.header-utility .util-left { color: #cfcfcf; }
+
+.header-utility .util-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.header-utility a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.header-utility a::before,
+.header-utility a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.header-utility .util-login {
+  background: #fff;
+  color: #0a0a0a;
+  padding: 5px 16px;
+  border-radius: 18px;
+  font-weight: 600;
+}
+
+/* white main nav */
+header nav { background: #fff; }
+
+body.wehealthcare-theme header nav .nav-sections ul > li > a {
+  color: #101010;
+  font-weight: 600;
+}
+
 header nav .nav-brand img {
   width: auto;
-  height: 40px;
+  height: 30px;
 }
 
-/* Space the primary menu items horizontally on desktop */
+/* red primary CTA pill in the tools area */
+header nav .nav-tools .button {
+  background: #e11b22;
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* space the primary menu items horizontally on desktop */
 @media (width >= 900px) {
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;

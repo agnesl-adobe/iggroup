@@ -32,6 +32,12 @@ export default function decorate(block) {
         if (i > 0) p.classList.add('secondary');
         ctaRow.append(p);
       });
+      // Align hero CTA labels with ig.com wording (by CTA target).
+      ctaRow.querySelectorAll('a').forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        if (href.includes('application-form')) a.textContent = 'Create live account';
+        else if (href.includes('demo-account')) a.textContent = 'Create demo account';
+      });
     }
 
     block.append(textCell);

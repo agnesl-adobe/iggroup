@@ -473,7 +473,7 @@ export default async function decorate(block) {
     navSource.innerHTML = `
       <div class="section nav-brand">
         <div class="default-content-wrapper">
-          <p><picture><img src="https://a.c-dn.net/c/content/dam/publicsites/igcom/uk/images/IG_Logo_RedSquare.svg" alt="IG"></picture></p>
+          <p><picture><img src="https://a.c-dn.net/c/content/dam/publicsites/igcom/IG_Red_Logo_White_BG.svg" alt="IG"></picture></p>
         </div>
       </div>
       <div class="section nav-sections">
@@ -489,7 +489,6 @@ export default async function decorate(block) {
       </div>
       <div class="section nav-tools">
         <div class="default-content-wrapper">
-          <p class="button-container"><a class="button" href="/en/login">Log in</a></p>
           <p class="button-container"><a class="button" href="/en/application-form">Create live account</a></p>
         </div>
       </div>`;
@@ -640,6 +639,19 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  // IG-style black utility strip above the main nav
+  const utilityBar = document.createElement('div');
+  utilityBar.className = 'header-utility';
+  utilityBar.innerHTML = `
+    <div class="header-utility-inner">
+      <span class="util-left">Personal</span>
+      <span class="util-right">
+        <a href="/en/academy">Academy</a>
+        <a href="/en/help">Help</a>
+        <a class="util-login" href="/en/login">Log in</a>
+      </span>
+    </div>`;
+  navWrapper.append(utilityBar);
   navWrapper.append(nav);
   block.append(navWrapper);
   settingAltTextForSearchIcon();
