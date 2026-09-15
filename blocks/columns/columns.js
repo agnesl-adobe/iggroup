@@ -107,16 +107,18 @@ function isVideoLink(link) {
 function tagIgColumnsVariant(block) {
   if ([...block.classList].some((c) => c.startsWith('columns-') && c.endsWith('-ig'))) return;
   const hasOl = !!block.querySelector('ol');
-  const hasUl = !!block.querySelector('ul');
+  const uls = [...block.querySelectorAll('ul')];
   const learnMore = [...block.querySelectorAll('a')].filter((a) => /learn more/i.test(a.textContent)).length;
-  const imgs = block.querySelectorAll('picture, img').length
-    + [...block.querySelectorAll('a')].filter((a) => /\.(png|jpe?g|gif|webp|svg|avif)(\?|#|$)|jcr:content\/renditions/i.test(a.getAttribute('href') || '')).length;
+  // A ul whose items are links (audience link-lists) distinguishes "links"
+  // from "feature" (a benefit checklist whose items are plain text).
+  const ulLinkItems = uls.reduce((n, ul) => n
+    + [...ul.querySelectorAll(':scope > li')].filter((li) => li.querySelector('a')).length, 0);
 
   let variant = null;
   if (hasOl) variant = 'columns-steps-ig'; // numbered "Join IG" steps
   else if (learnMore >= 2) variant = 'columns-promo-ig'; // two "Learn more" promo panels
-  else if (hasUl && imgs >= 2) variant = 'columns-links-ig'; // two audience link columns w/ images
-  else if (hasUl) variant = 'columns-feature-ig'; // checklist + single screenshot
+  else if (ulLinkItems > 0) variant = 'columns-links-ig'; // audience columns of link-lists
+  else if (uls.length) variant = 'columns-feature-ig'; // benefit checklist + screenshot
 
   if (variant) block.classList.add(variant);
 }
