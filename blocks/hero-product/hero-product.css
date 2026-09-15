@@ -53,11 +53,16 @@
   max-width: 620px;
 }
 
-/* Chat / plain-link paragraph — IG blue inline links */
+/* Chat / plain-link paragraph — IG blue inline links.
+   Reset the global anchor rule (inline-block / line-height: 20px) so the links
+   sit inline on the sentence baseline instead of floating out of the row. */
 .hero-product .hero-product-text > p a:any-link {
+  display: inline;
   color: var(--link-color);
   font-size: inherit;
   font-weight: 400;
+  line-height: inherit;
+  vertical-align: baseline;
   white-space: normal;
 }
 
