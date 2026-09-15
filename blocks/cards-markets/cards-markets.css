@@ -116,12 +116,18 @@ main .section:has(.cards-markets) > .default-content-wrapper {
   text-align: center;
 }
 
-/* CTA pair: a single centered row */
+/* breathing room below the heading/subtitle, before the cards */
+main .section:has(.cards-markets) > .default-content-wrapper:first-child {
+  margin-bottom: 40px;
+}
+
+/* CTA pair: a single centered row, with space above it after the cards */
 main .section:has(.cards-markets) > .default-content-wrapper:last-child {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
+  margin-top: 48px;
 }
 
 main .section:has(.cards-markets) > .default-content-wrapper:last-child .button-container {
