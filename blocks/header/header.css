@@ -677,3 +677,18 @@ header nav .nav-tools .nav-search {
     display: none;
   }
 }
+
+/* scroll-collapse: hide the risk-warning + utility strips on scroll-down,
+   leaving just the main nav pinned (matches ig.com). */
+.header-disclaimer,
+.header-utility {
+  overflow: hidden;
+  max-height: 140px;
+  transition: max-height 0.25s ease;
+}
+
+.nav-wrapper.scrolled .header-disclaimer,
+.nav-wrapper.scrolled .header-utility {
+  max-height: 0;
+  border-bottom: 0;
+}

@@ -662,6 +662,13 @@ export default async function decorate(block) {
   navWrapper.append(utilityBar);
   navWrapper.append(nav);
   block.append(navWrapper);
+  // Collapse the top two strips (risk warning + utility bar) on scroll-down,
+  // leaving just the main nav pinned — matches ig.com.
+  const onScrollCollapse = () => {
+    navWrapper.classList.toggle('scrolled', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScrollCollapse, { passive: true });
+  onScrollCollapse();
   settingAltTextForSearchIcon();
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
