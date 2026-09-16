@@ -235,3 +235,13 @@
   white-space: normal;
   margin: 0;
 }
+
+/* Suppress the global Font Awesome chevron (a::after) on the inline chat links.
+   The block already does this via `> p a::after`, but that direct-child
+   selector misses in the UE (paragraphs are nested in instrumentation
+   wrappers), so restate it as a descendant rule. Without this the "web chat"
+   and "WhatsApp" links show trailing arrows in the editor. */
+.adobe-ue-edit .hero-product .hero-product-text a:any-link:not(.button)::after,
+.adobe-ue-preview .hero-product .hero-product-text a:any-link:not(.button)::after {
+  content: none !important;
+}
