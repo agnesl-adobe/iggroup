@@ -495,7 +495,23 @@ header {
   position: sticky;
   top: 0;
   height: auto;
+  /* Reserve the built 3-tier header's height from first paint. The block is
+     injected asynchronously, so without this the header grows 0 -> full height
+     after load and shoves <main> down — the dominant CLS (~0.30). Calibrated to
+     the rendered heights (mobile ~246px at 412px wide, desktop ~150px). */
+  min-height: 246px;
+}
+
+/* Once the disclaimer + utility strips collapse on scroll, release the
+   reservation so the header can shrink to just the pinned nav. */
+header:has(.nav-wrapper.scrolled) {
   min-height: 0;
+}
+
+@media (width >= 900px) {
+  header {
+    min-height: 150px;
+  }
 }
 
 header .nav-wrapper {
