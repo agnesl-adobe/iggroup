@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <!-- Scoped to ONLY the nav document, merge mode — cannot affect the en
-         homepage or any other node. -->
-    <filter root="/content/iggroup/language-masters/en/nav" mode="merge"/>
+    <!-- Scoped to ONLY the nav document. mode=replace so the OLD nav's child
+         nodes (old logo image, red "Log in" button) are removed, not merged
+         alongside the correct content. Safe: the root is the nav node only,
+         so it cannot affect the en homepage or any sibling. -->
+    <filter root="/content/iggroup/language-masters/en/nav" mode="replace"/>
 </workspaceFilter>
