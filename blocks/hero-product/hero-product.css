@@ -198,17 +198,17 @@
 /* Slightly tighter vertical rhythm between rows than the first pass. */
 .adobe-ue-edit .hero-product .hero-product-text > p,
 .adobe-ue-preview .hero-product .hero-product-text > p {
-  margin: 6px 0 0;
+  margin: 2px 0 0;
 }
 
 .adobe-ue-edit .hero-product .hero-product-cta,
 .adobe-ue-preview .hero-product .hero-product-cta {
-  margin: 10px 0 0;
+  margin: 4px 0 0;
 }
 
 .adobe-ue-edit .hero-product .hero-product-cta + p,
 .adobe-ue-preview .hero-product .hero-product-cta + p {
-  margin-top: 8px;
+  margin-top: 3px;
 }
 
 .adobe-ue-edit .hero-product .hero-product-media,
