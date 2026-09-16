@@ -173,6 +173,9 @@ header .nav-brand {
 header nav .nav-brand img {
   width: 100px;
   height: auto;
+  /* Reserve the logo's box (IG_LOGO.svg viewBox 42x36) so the nav row doesn't
+     grow when the SVG file loads and shift the whole page (CLS). */
+  aspect-ratio: 42 / 36;
 }
 
 .wehealthcare-theme header nav .nav-brand img {
