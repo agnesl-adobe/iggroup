@@ -189,22 +189,29 @@
   display: contents;
 }
 
+/* Tighter top gap between the nav bar and the headline (matches Preview). */
+.adobe-ue-edit .hero-product.block,
+.adobe-ue-preview .hero-product.block {
+  padding-top: 8px;
+}
+
+/* Slightly tighter vertical rhythm between rows than the first pass. */
 .adobe-ue-edit .hero-product .hero-product-text > p,
 .adobe-ue-preview .hero-product .hero-product-text > p {
-  margin: 20px 0 0;
+  margin: 12px 0 0;
 }
 
 .adobe-ue-edit .hero-product .hero-product-cta,
 .adobe-ue-preview .hero-product .hero-product-cta {
-  margin: 32px 0 0;
+  margin: 20px 0 0;
 }
 
 .adobe-ue-edit .hero-product .hero-product-cta + p,
 .adobe-ue-preview .hero-product .hero-product-cta + p {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .adobe-ue-edit .hero-product .hero-product-media,
 .adobe-ue-preview .hero-product .hero-product-media {
-  margin-top: 32px;
+  margin-top: 24px;
 }
