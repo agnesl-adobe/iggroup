@@ -85,9 +85,10 @@ export default function decorate(block) {
       if (last && last.nodeType === Node.TEXT_NODE) {
         const m = last.textContent.match(/^(.*[a-zA-Z])(\d{1,2})$/);
         if (m) {
-          last.textContent = m[1];
+          const [, lead, digit] = m;
+          last.textContent = lead;
           const sup = document.createElement('sup');
-          sup.textContent = m[2];
+          sup.textContent = digit;
           hd.append(sup);
         }
       }
