@@ -91,7 +91,9 @@ export default async function decorate(block) {
 
     const title = item.title || '';
     const subtitle = Array.isArray(item.subtitle) ? item.subtitle.join(' ') : (item.subtitle || '');
-    const summary = item.summary || '';
+    // summary and mainContent may be multiline fields (objects with
+    // html/plaintext) or plain strings depending on the model.
+    const summary = item.summary?.plaintext ?? (typeof item.summary === 'string' ? item.summary : '');
     const contentHtml = item.mainContent?.html || (item.mainContent?.plaintext ? `<p>${item.mainContent.plaintext}</p>` : '');
     const author = item.author || '';
     const imgUrl = (isAuthor ? item.mainImage?._authorUrl : item.mainImage?._publishUrl) || item.mainImage?._path || '';
