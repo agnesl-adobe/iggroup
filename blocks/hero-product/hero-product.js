@@ -138,6 +138,11 @@ export default function decorate(block) {
     const img = document.createElement('img');
     img.src = mediaImageUrl;
     img.alt = mediaImageAlt;
+    // Reserve the hero's aspect ratio (source is 2:1) so the image doesn't push
+    // the page down as it loads — this is the dominant CLS culprit. CSS keeps it
+    // width:100%/height:auto, so these attributes only set the ratio.
+    img.setAttribute('width', '1600');
+    img.setAttribute('height', '800');
     img.setAttribute('loading', 'eager');
     img.setAttribute('fetchpriority', 'high');
     wrap.append(img);

@@ -35,6 +35,10 @@ export default function decorate(block) {
     // Use the title as alt; never the link text (which is the raw URL).
     const title = (a.getAttribute('title') || '').trim();
     img.alt = title && !/^https?:\/\//i.test(title) ? title : '';
+    // Reserve the card image's aspect ratio (source is 1484x987) so lazy-loading
+    // doesn't shift the grid. CSS keeps it width:100%/height:auto.
+    img.setAttribute('width', '1484');
+    img.setAttribute('height', '987');
     img.setAttribute('loading', 'lazy');
     a.replaceWith(img);
   });
