@@ -96,13 +96,16 @@ export default function decorate(block) {
 
     // Group the CTA paragraphs into one horizontal row; mark the second (and
     // later) CTA as the outlined secondary variant.
-    // Detect CTA paragraphs robustly: a direct-child <p> that is (or will be) a
+    // Detect CTA paragraphs robustly: a <p> that is (or will be) a
     // button-container — i.e. its only meaningful content is a single link.
-    // Relying solely on the `.button-container` class is fragile because EDS's
-    // decorateButtons may not have tagged it yet when this decorate() runs; in
-    // the account-CTA case that left the buttons ungrouped, so they fell back to
-    // the global stacked red-pill styling.
-    const ctaParas = [...textWrap.querySelectorAll(':scope > p')].filter((p) => {
+    // Search descendants (not just direct children): the Universal Editor wraps
+    // fields in `data-aue-*` instrumentation divs, so the CTA paragraphs are not
+    // direct children of the text stack there. Matching only `:scope > p` left
+    // them ungrouped in the UE, so both buttons fell back to the global stacked
+    // red-pill styling (while Preview/published, which have no instrumentation,
+    // rendered correctly). Relying on the `.button-container` class alone is also
+    // fragile because EDS's decorateButtons may not have tagged it yet.
+    const ctaParas = [...textWrap.querySelectorAll('p')].filter((p) => {
       if (p.classList.contains('button-container')) return true;
       const links = p.querySelectorAll('a');
       return links.length === 1 && p.textContent.trim() === links[0].textContent.trim();
