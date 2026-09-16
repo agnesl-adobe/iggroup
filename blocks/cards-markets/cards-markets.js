@@ -17,8 +17,15 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
 
     [...li.children].forEach((div, index) => {
-      if (index === 0) div.className = 'cards-markets-icon';
-      else div.className = 'cards-markets-body';
+      if (index === 0) {
+        div.className = 'cards-markets-icon';
+        return;
+      }
+      // A real body cell carries a heading or paragraph. Some authored rows have
+      // a stray extra cell (e.g. a leftover "button" placeholder) with no real
+      // content — drop it so it doesn't render as a random label under the card.
+      if (div.querySelector('h2, h3, h4, p')) div.className = 'cards-markets-body';
+      else div.remove();
     });
 
     ul.append(li);
