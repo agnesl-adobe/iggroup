@@ -120,15 +120,21 @@
   padding: 28px;
   border-radius: 16px;
   min-height: 320px;
-  /* Match the illustration's ratio (750x1090) so the full image shows and its
-     transparent lower area stays open for the copy — no cover-cropping. */
+  /* Stacked mobile card: use the illustration's own ratio so the copy sits in
+     its open lower area (desktop overrides to a shorter square below). */
   aspect-ratio: 75 / 109;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Full-card illustration behind the text; the card colour shows through the
-   image's transparent lower area, where the copy sits. */
+@media (width >= 900px) {
+  .columns.columns-promo-ig .columns-row > div {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Full-card illustration behind the text. The illustration's subject sits in the
+   top ~55%; anchor it to the top so it stays visible in the shorter card. */
 .columns.columns-promo-ig .columns-promo-bg {
   position: absolute;
   inset: 0;
@@ -139,6 +145,25 @@
   object-position: center top;
   z-index: 0;
   pointer-events: none;
+}
+
+/* Gradient scrim fading the artwork into the card colour behind the copy, so the
+   text stays legible where the shorter card overlaps the illustration. */
+.columns.columns-promo-ig .columns-row > div::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 60%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.columns.columns-promo-ig .columns-row > div:first-child::after {
+  background: linear-gradient(to top, #e4e3fb 28%, rgba(228, 227, 251, 0));
+}
+
+.columns.columns-promo-ig .columns-row > div:nth-child(2)::after {
+  background: linear-gradient(to top, #1958e6 28%, rgba(25, 88, 230, 0));
 }
 
 .columns.columns-promo-ig .columns-row > div > p {
