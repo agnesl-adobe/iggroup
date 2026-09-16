@@ -169,3 +169,42 @@
 }
 
 /* code-sync nudge 1789485455 */
+
+/* ============================================================
+   Universal Editor ONLY overrides.
+   Scoped under .adobe-ue-edit / .adobe-ue-preview (the classes EDS adds to
+   <html> inside the editor canvas), so Preview and the published site — which
+   never carry these classes — are completely unaffected.
+
+   In the UE, each field is wrapped in a data-aue-* <div>. Those wrappers become
+   the flex items of .hero-product-text and .hero-product.block, which breaks the
+   flex `gap` rhythm and the `> p` selectors (blank band above the headline,
+   floating chat links, cramped spacing). Neutralise the wrappers and restate the
+   spacing as margins so the editor matches Preview.
+   ============================================================ */
+.adobe-ue-edit .hero-product.block > div:not(.hero-product-text, .hero-product-media),
+.adobe-ue-preview .hero-product.block > div:not(.hero-product-text, .hero-product-media),
+.adobe-ue-edit .hero-product .hero-product-text > div,
+.adobe-ue-preview .hero-product .hero-product-text > div {
+  display: contents;
+}
+
+.adobe-ue-edit .hero-product .hero-product-text > p,
+.adobe-ue-preview .hero-product .hero-product-text > p {
+  margin: 20px 0 0;
+}
+
+.adobe-ue-edit .hero-product .hero-product-cta,
+.adobe-ue-preview .hero-product .hero-product-cta {
+  margin: 32px 0 0;
+}
+
+.adobe-ue-edit .hero-product .hero-product-cta + p,
+.adobe-ue-preview .hero-product .hero-product-cta + p {
+  margin-top: 24px;
+}
+
+.adobe-ue-edit .hero-product .hero-product-media,
+.adobe-ue-preview .hero-product .hero-product-media {
+  margin-top: 32px;
+}
