@@ -42,10 +42,15 @@ export default async function decorate(block) {
   block.innerHTML = '';
   const isAuthor = isAuthorEnvironment();
 
+	// Encode the CF path for the persisted-query URL: DAM paths can contain
+	// spaces (e.g. "/content/dam/AL demos/IG Group/..."), which break the request
+	// if injected raw. encodeURI keeps the "/" separators while escaping spaces.
+	const encodedPath = encodeURI(contentPath || '');
+
 	// Prepare request configuration based on environment
-	const requestConfig = isAuthor 
+	const requestConfig = isAuthor
   ? {
-      url: `${aemauthorurl}${CONFIG.GRAPHQL_QUERY};path=${contentPath};variation=${variationname};ts=${Date.now()}`,
+      url: `${aemauthorurl}${CONFIG.GRAPHQL_QUERY};path=${encodedPath};variation=${variationname};ts=${Date.now()}`,
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     }
