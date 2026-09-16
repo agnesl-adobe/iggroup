@@ -80,9 +80,9 @@ export default async function decorate(block) {
 
     const offer = await response.json();
     // ---- FIELD MAPPING: match these to your model's GraphQL property names ----
-    // `articleByPath` is generated from a model named "Article"; if your model
-    // has a different name, the query root differs (e.g. `newsByPath`).
-    const item = offer?.data?.articleByPath?.item;
+    // Take the first query root in the response (e.g. articleByPath / newsByPath)
+    // so the block works whatever the model's generated query name is.
+    const item = offer?.data ? Object.values(offer.data)[0]?.item : undefined;
     if (!item) {
       // eslint-disable-next-line no-console
       console.error('content-fragment: no article item in GraphQL response', { response: offer, contentPath });
