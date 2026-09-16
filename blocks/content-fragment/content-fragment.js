@@ -96,7 +96,10 @@ export default async function decorate(block) {
     const summary = item.summary?.plaintext ?? (typeof item.summary === 'string' ? item.summary : '');
     const contentHtml = item.mainContent?.html || (item.mainContent?.plaintext ? `<p>${item.mainContent.plaintext}</p>` : '');
     const author = item.author || '';
-    const imgUrl = (isAuthor ? item.mainImage?._authorUrl : item.mainImage?._publishUrl) || item.mainImage?._path || '';
+    // mainImage is a Reference resolved as ImageRef: prefer the dynamic delivery
+    // URL, then author/publish URLs, then the raw DAM path.
+    const img = item.mainImage || {};
+    const imgUrl = img._dynamicUrl || (isAuthor ? img._authorUrl : img._publishUrl) || img._path || '';
 
     let publishDate = '';
     if (item.publishDate) {
