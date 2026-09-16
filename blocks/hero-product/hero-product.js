@@ -94,10 +94,27 @@ export default function decorate(block) {
       }
     });
 
-    // Group the CTA button-containers into one horizontal row; mark the second
-    // (and later) CTA as the outlined secondary variant.
-    const ctaParas = [...textWrap.querySelectorAll(':scope > p.button-container')];
+    // Group the CTA paragraphs into one horizontal row; mark the second (and
+    // later) CTA as the outlined secondary variant.
+    // Detect CTA paragraphs robustly: a direct-child <p> that is (or will be) a
+    // button-container — i.e. its only meaningful content is a single link.
+    // Relying solely on the `.button-container` class is fragile because EDS's
+    // decorateButtons may not have tagged it yet when this decorate() runs; in
+    // the account-CTA case that left the buttons ungrouped, so they fell back to
+    // the global stacked red-pill styling.
+    const ctaParas = [...textWrap.querySelectorAll(':scope > p')].filter((p) => {
+      if (p.classList.contains('button-container')) return true;
+      const links = p.querySelectorAll('a');
+      return links.length === 1 && p.textContent.trim() === links[0].textContent.trim();
+    });
     if (ctaParas.length) {
+      // Ensure each grouped CTA paragraph carries button-container + its link
+      // carries .button, so the block CSS (and global pill styling) applies.
+      ctaParas.forEach((p) => {
+        p.classList.add('button-container');
+        const a = p.querySelector('a');
+        if (a) a.classList.add('button');
+      });
       const ctaRow = document.createElement('div');
       ctaRow.className = 'hero-product-cta';
       ctaParas[0].before(ctaRow);
