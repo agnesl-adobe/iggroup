@@ -104,6 +104,13 @@ export default function decorate(block) {
         if (i > 0) p.classList.add('secondary');
         ctaRow.append(p);
       });
+      // Align hero CTA labels with ig.com wording (keyed by link target), since
+      // the imported link text is the raw path ("application form"/"demo account").
+      ctaRow.querySelectorAll('a').forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        if (/application-form/.test(href)) a.textContent = 'Create live account';
+        else if (/demo-account/.test(href)) a.textContent = 'Create demo account';
+      });
     }
 
     block.append(textWrap);
