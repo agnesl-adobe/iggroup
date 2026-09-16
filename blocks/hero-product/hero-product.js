@@ -156,7 +156,12 @@ export default function decorate(block) {
     const wrap = document.createElement('div');
     wrap.className = 'hero-product-media';
     const img = document.createElement('img');
-    img.src = mediaImageUrl;
+    // The hero art is the LCP element. If it's the ig.com marketing PNG (a 2.8MB
+    // external asset that can't be optimized through our pipeline), swap in the
+    // local optimized webp copy (~77KB, same-origin) instead.
+    img.src = /homepageHero/i.test(mediaImageUrl)
+      ? `${window.hlx.codeBasePath}/images/homepage-hero.webp`
+      : mediaImageUrl;
     img.alt = mediaImageAlt;
     // Reserve the hero's aspect ratio (source is 2:1) so the image doesn't push
     // the page down as it loads — this is the dominant CLS culprit. CSS keeps it

@@ -27,11 +27,24 @@ export default function decorate(block) {
   // The icon field may be delivered as a bare link to the (external) asset URL
   // rather than a <picture> — turn image-links in the icon cell into <img>.
   const IMG_URL = /\.(png|jpe?g|gif|webp|svg|avif)(\?|#|$)|\/is\/image\/|jcr:content\/renditions/i;
+  // Known ig.com market PNGs (multi-hundred-KB each) have local optimized webp
+  // copies (~13-24KB, same-origin) — map the source filename to the local asset.
+  const LOCAL_MARKET = {
+    forexNew: 'market-forex',
+    cryptoNew: 'market-crypto',
+    commoditiesNew: 'market-commodities',
+    etfsNew: 'market-etfs',
+    sharesNew: 'market-shares',
+    indicesNew: 'market-indices',
+  };
   ul.querySelectorAll('.cards-markets-icon a').forEach((a) => {
     const href = a.getAttribute('href') || '';
     if (!IMG_URL.test(href)) return;
     const img = document.createElement('img');
-    img.src = href;
+    const stem = (href.match(/([^/]+?)\.(?:png|jpe?g|webp)/i) || [])[1];
+    img.src = stem && LOCAL_MARKET[stem]
+      ? `${window.hlx.codeBasePath}/images/${LOCAL_MARKET[stem]}.webp`
+      : href;
     // Use the title as alt; never the link text (which is the raw URL).
     const title = (a.getAttribute('title') || '').trim();
     img.alt = title && !/^https?:\/\//i.test(title) ? title : '';
