@@ -21,10 +21,11 @@ export default function decorate(block) {
         div.className = 'cards-markets-icon';
         return;
       }
-      // A real body cell carries a heading or paragraph. Some authored rows have
-      // a stray extra cell (e.g. a leftover "button" placeholder) with no real
-      // content — drop it so it doesn't render as a random label under the card.
-      if (div.querySelector('h2, h3, h4, p')) div.className = 'cards-markets-body';
+      // A real body cell carries the card title (a heading). Some authored rows
+      // have a stray extra cell (e.g. a leftover "button" placeholder, which EDS
+      // wraps as <p>button</p>) with no heading — drop it so it doesn't render as
+      // a random label under the card.
+      if (div.querySelector('h2, h3, h4, h5, h6')) div.className = 'cards-markets-body';
       else div.remove();
     });
 
