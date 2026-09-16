@@ -473,7 +473,7 @@ export default async function decorate(block) {
     navSource.innerHTML = `
       <div class="section nav-brand">
         <div class="default-content-wrapper">
-          <p><picture><img src="https://www.ig.com/etc.clientlibs/settings/wcm/designs/onedomain/1788752311000/clientlibs_resources/resources/images/logos/IG_LOGO.svg" alt="IG"></picture></p>
+          <p><picture><img src="${window.hlx.codeBasePath}/images/ig-logo.svg" alt="IG"></picture></p>
         </div>
       </div>
       <div class="section nav-sections">
