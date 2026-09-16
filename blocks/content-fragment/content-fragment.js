@@ -22,7 +22,7 @@ export default async function decorate(block) {
   // The Sites GraphQL endpoint configuration name that owns the persisted query
   // (the segment after /graphql/execute.json/). Was `ref-demo-eds` (reference
   // demo); set this to your own config.
-  const ENDPOINT_CONFIG = 'iggroup';
+  const ENDPOINT_CONFIG = 'wknd-universal';
   const PERSISTED_QUERY = `/graphql/execute.json/${ENDPOINT_CONFIG}/ArticleByPath`;
   // Publish-side CORS proxy for GraphQL. The reference-demo gateway below only
   // serves the reference demo; replace with your own proxy (or a published,
