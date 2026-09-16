@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!-- Scoped to ONLY the nav document, merge mode — cannot affect the en
+         homepage or any other node. -->
+    <filter root="/content/iggroup/language-masters/en/nav" mode="merge"/>
+</workspaceFilter>

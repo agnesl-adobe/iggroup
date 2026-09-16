@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <image sling:resourceType="core/franklin/components/image/v1/image" jcr:primaryType="nt:unstructured" image="https://www.ig.com/etc.clientlibs/settings/wcm/designs/onedomain/1788752311000/clientlibs_resources/resources/images/logos/IG_LOGO.svg" imageAlt="IG"/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.ig.com/en/markets-to-trade&quot;&gt;Trading&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.ig.com/en/trading-platforms&quot;&gt;Trading platforms&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.ig.com/en/about-us&quot;&gt;About us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.ig.com/en/ig-financial-markets&quot;&gt;Market analysis&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;https://www.ig.com/en/trading-skills&quot;&gt;Learning&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/en/application-form" linkText="Create live account"/>
+      </section_2>
+    </root>
+  </jcr:content>
+</jcr:root>

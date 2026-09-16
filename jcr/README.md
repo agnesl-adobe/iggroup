@@ -51,3 +51,25 @@ The four `columns-*` blocks serialize to AEM's native `columns` component (corre
 they were generated as forked blocks rather than option-classes on the base `columns`
 block. Structure and content are intact; to hook the variant-specific brand CSS in AEM,
 model them as a `classes` option on the base `columns` block.
+
+## Navigation — `/content/iggroup/language-masters/en/nav`
+
+`iggroup-en-nav-1.0.0.zip` (sources under `nav-package/`) installs the **nav
+document** the header block loads in the Universal Editor.
+
+**Why:** in the author/UE environment, `blocks/header/header.js` fetches a nav
+document at `/content/iggroup/language-masters/en/nav` and only falls back to its
+built-in markup when that document is absent. If an **old** nav document exists there
+(old logo, red "Log in" in the navbar), the UE renders it instead of the current code —
+which is why the published site is correct but the UE header looks stale, and why
+re-syncing block code does not change it.
+
+This package provides a **correct** nav document — IG logo (`IG_LOGO.svg`), the five
+top-level nav links, and a "Create live account" CTA — as three EDS sections
+(brand / sections / tools), matching the header block's expected structure. Installing it
+(merge mode, scoped to the `nav` node only) replaces the stale nav so the UE header
+matches the published site.
+
+Install via AEM Package Manager, then preview/publish `/en/nav` if you want it on the
+delivered site too (the published header currently uses the code fallback, since
+`/en/nav` returns 404 there).
