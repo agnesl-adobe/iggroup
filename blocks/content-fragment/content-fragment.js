@@ -45,9 +45,13 @@ export default async function decorate(block) {
   if (!contentPath) return;
   const isAuthor = isAuthorEnvironment();
 
-  // DAM paths can contain spaces (e.g. "/content/dam/AL demos/IG Group/...");
-  // encodeURI keeps the "/" separators while escaping spaces so the URL is valid.
-  const encodedPath = encodeURI(contentPath);
+  // Normalize the CF path to a SINGLE url-encoding. The picker may already hand
+  // us an encoded path (e.g. "AL%20demos"); encoding that again yields
+  // "AL%2520demos", which AEM resolves to a non-existent node (item: null).
+  // Decode first, then encode once, so a space is always a single %20.
+  let normalizedPath = contentPath;
+  try { normalizedPath = decodeURI(contentPath); } catch (e) { /* leave as-is */ }
+  const encodedPath = encodeURI(normalizedPath);
 
   const requestConfig = isAuthor
     ? {
@@ -61,7 +65,7 @@ export default async function decorate(block) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         graphQLPath: `${aempublishurl}${PERSISTED_QUERY}`,
-        cfPath: contentPath,
+        cfPath: normalizedPath,
         variation: `${variationname};ts=${Date.now()}`,
       }),
     };
