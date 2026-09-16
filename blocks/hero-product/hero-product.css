@@ -217,18 +217,21 @@
 }
 
 /* Inline chat links ("web chat", "WhatsApp") in the "Got questions?" row.
-   UE wraps each link (and sometimes the text runs) in its own instrumentation
-   element that defaults to a block/inline-block box, so the links float above
-   the sentence baseline. Force those wrappers and the anchors themselves back
-   to inline / baseline so the row reads as one flowing sentence like Preview. */
-.adobe-ue-edit .hero-product .hero-product-text > p [data-aue-prop],
-.adobe-ue-preview .hero-product .hero-product-text > p [data-aue-prop],
-.adobe-ue-edit .hero-product .hero-product-text > p [data-aue-type],
-.adobe-ue-preview .hero-product .hero-product-text > p [data-aue-type],
-.adobe-ue-edit .hero-product .hero-product-text > p a:any-link,
-.adobe-ue-preview .hero-product .hero-product-text > p a:any-link {
+   In Preview the paragraph is a direct child of .hero-product-text, so the
+   `> p a` block rule applies and the links sit inline on the sentence baseline.
+   In the UE the paragraphs are nested inside data-aue-* instrumentation
+   wrappers, so that direct-child rule misses and the global
+   `a { display: inline-block; line-height: 20px; overflow: hidden }` wins —
+   which lifts the links off the baseline (they "float" above the text).
+   Restate the inline treatment with a DESCENDANT selector (any depth) so it
+   catches the links regardless of the wrapper nesting the editor adds, and
+   clear the inline-block-only properties that cause the float. */
+.adobe-ue-edit .hero-product .hero-product-text a:any-link:not(.button),
+.adobe-ue-preview .hero-product .hero-product-text a:any-link:not(.button) {
   display: inline;
   vertical-align: baseline;
   line-height: inherit;
+  overflow: visible;
+  white-space: normal;
   margin: 0;
 }
