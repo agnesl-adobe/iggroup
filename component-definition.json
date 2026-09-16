@@ -133,21 +133,6 @@
           }
         },
         {
-          "title": "Card",
-          "id": "card",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Card",
-                  "model": "card"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Cards Stats",
           "id": "cards-stats",
           "plugins": {
@@ -157,21 +142,6 @@
                 "template": {
                   "name": "Cards",
                   "filter": "cards-stats"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Card",
-          "id": "card",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "Card",
-                  "model": "card"
                 }
               }
             }

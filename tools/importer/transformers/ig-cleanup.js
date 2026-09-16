@@ -7,8 +7,10 @@
  * cookie consent, tracking pixels/iframes) so the import contains only authorable
  * page content. All selectors verified against migration-work/cleaned.html.
  *
- * NOTE: `div.esma.experiencefragment` (cleaned.html:7) is an authorable section
- * (template section rc-esma) and is intentionally NOT removed.
+ * NOTE: `div.esma.experiencefragment` (cleaned.html:7) is the ESMA risk-warning
+ * banner. It is removed from page content because the header block renders the
+ * same disclaimer as a persistent top bar (matches ig.com) — keeping it in the
+ * page too would duplicate it on a white background below the black bar.
  */
 
 const TransformHook = { beforeTransform: 'beforeTransform', afterTransform: 'afterTransform' };
@@ -16,6 +18,10 @@ const TransformHook = { beforeTransform: 'beforeTransform', afterTransform: 'aft
 export default function transform(hookName, element, payload) {
   if (hookName === TransformHook.beforeTransform) {
     WebImporter.DOMUtils.remove(element, [
+      // ESMA risk-warning banner — rendered by the header block as a persistent
+      // top bar, so removed from page content to avoid duplicating it below.
+      'div.esma.experiencefragment',
+      'div.esma',
       // Cookie consent overlay (cleaned.html:1373-1376)
       '#onetrust-consent-sdk',
       // Overlays / modals that can interfere with parsing (cleaned.html:1351,1355,1342)
