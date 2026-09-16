@@ -215,3 +215,20 @@
 .adobe-ue-preview .hero-product .hero-product-media {
   margin-top: 24px;
 }
+
+/* Inline chat links ("web chat", "WhatsApp") in the "Got questions?" row.
+   UE wraps each link (and sometimes the text runs) in its own instrumentation
+   element that defaults to a block/inline-block box, so the links float above
+   the sentence baseline. Force those wrappers and the anchors themselves back
+   to inline / baseline so the row reads as one flowing sentence like Preview. */
+.adobe-ue-edit .hero-product .hero-product-text > p [data-aue-prop],
+.adobe-ue-preview .hero-product .hero-product-text > p [data-aue-prop],
+.adobe-ue-edit .hero-product .hero-product-text > p [data-aue-type],
+.adobe-ue-preview .hero-product .hero-product-text > p [data-aue-type],
+.adobe-ue-edit .hero-product .hero-product-text > p a:any-link,
+.adobe-ue-preview .hero-product .hero-product-text > p a:any-link {
+  display: inline;
+  vertical-align: baseline;
+  line-height: inherit;
+  margin: 0;
+}
