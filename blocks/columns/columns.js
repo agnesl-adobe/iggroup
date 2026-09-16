@@ -123,10 +123,39 @@ function tagIgColumnsVariant(block) {
   if (variant) block.classList.add(variant);
 }
 
+/**
+ * The IG "Learn more" promo panels (Refer a friend / Volume-based rebates) use a
+ * full-card background illustration behind the text. The authored content has no
+ * image, so inject the local optimized webp keyed by each panel's link target.
+ */
+function addPromoImages(block) {
+  if (!block.classList.contains('columns-promo-ig')) return;
+  const PROMO_IMG = [
+    { test: /refer-a-friend/i, file: 'promo-refer-a-friend' },
+    { test: /rebate|volume-based/i, file: 'promo-rebates' },
+  ];
+  block.querySelectorAll(':scope > div > div').forEach((col) => {
+    if (col.querySelector('img, picture')) return;
+    const href = col.querySelector('a')?.getAttribute('href') || '';
+    const match = PROMO_IMG.find((p) => p.test.test(href));
+    if (!match) return;
+    const img = document.createElement('img');
+    img.className = 'columns-promo-bg';
+    img.src = `${window.hlx.codeBasePath}/images/${match.file}.webp`;
+    img.alt = '';
+    img.setAttribute('width', '750');
+    img.setAttribute('height', '1090');
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('aria-hidden', 'true');
+    col.prepend(img);
+  });
+}
+
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
   tagIgColumnsVariant(block);
+  addPromoImages(block);
 
   // setup image columns
   [...block.children].forEach((row) => {
