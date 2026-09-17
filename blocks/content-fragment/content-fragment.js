@@ -102,7 +102,14 @@ export default async function decorate(block) {
     // summary and mainContent may be multiline fields (objects with
     // html/plaintext) or plain strings depending on the model.
     const summary = item.summary?.plaintext ?? (typeof item.summary === 'string' ? item.summary : '');
-    const contentHtml = item.mainContent?.html || (item.mainContent?.plaintext ? `<p>${item.mainContent.plaintext}</p>` : '');
+    let contentHtml = item.mainContent?.html || (item.mainContent?.plaintext ? `<p>${item.mainContent.plaintext}</p>` : '');
+    // Defensive: some fragments have literal HTML tags pasted into the text field
+    // (e.g. copied from GraphQL html output). AEM escapes them as entities, so
+    // they render as visible "</p><p>"/"<br>". Un-escape just the paragraph/break
+    // tags so they format as intended instead of showing as text.
+    contentHtml = contentHtml
+      .replace(/&lt;\s*(\/?)\s*p\s*&gt;/gi, '<$1p>')
+      .replace(/&lt;\s*br\s*\/?\s*&gt;/gi, '<br>');
     const author = item.author || '';
     // mainImage is a Reference resolved as ImageRef: prefer the dynamic delivery
     // URL, then author/publish URLs, then the raw DAM path.
