@@ -24,16 +24,16 @@ export default async function decorate(block) {
   // demo); set this to your own config.
   const ENDPOINT_CONFIG = 'wknd-universal';
   const PERSISTED_QUERY = `/graphql/execute.json/${ENDPOINT_CONFIG}/ArticleByPath`;
-  // Publish-side CORS proxy for GraphQL. The reference-demo gateway below only
-  // serves the reference demo; replace with your own proxy (or a published,
-  // CORS-enabled persisted query) for the live EDS page to render.
-  const WRAPPER_SERVICE_URL = 'https://3635370-refdemoapigateway-stage.adobeioruntime.net/api/v1/web/ref-demo-api-gateway/fetch-cf';
+  // Publish-tier origin for the live (.aem.page/.aem.live) page. The persisted
+  // query is CORS-enabled there, so the block queries it directly from the
+  // browser (no proxy). Derived from the hostname placeholder when set.
+  const PUBLISH_ORIGIN = 'https://publish-p179457-e1900808.adobeaemcloud.com';
   // --------------------------------------------------------------------------
 
   const hostnameFromPlaceholders = await getHostname();
   const hostname = hostnameFromPlaceholders || getMetadata('hostname');
   const aemauthorurl = getMetadata('authorurl') || '';
-  const aempublishurl = hostname?.replace('author', 'publish')?.replace(/\/$/, '');
+  const aempublishurl = (hostname ? hostname.replace('author', 'publish').replace(/\/$/, '') : '') || PUBLISH_ORIGIN;
 
   // Block config cells (authored order): 1 CF path, 2 variation, 3 style, 4 alignment.
   const contentPath = block.querySelector(':scope div:nth-child(1) > div a')?.textContent?.trim();
@@ -57,22 +57,15 @@ export default async function decorate(block) {
   try { normalizedPath = decodeURI(contentPath); } catch (e) { /* leave as-is */ }
   const encodedPath = encodeURI(normalizedPath);
 
-  const requestConfig = isAuthor
-    ? {
-      url: `${aemauthorurl}${PERSISTED_QUERY};path=${encodedPath};variation=${variationname};ts=${Date.now()}`,
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }
-    : {
-      url: WRAPPER_SERVICE_URL,
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        graphQLPath: `${aempublishurl}${PERSISTED_QUERY}`,
-        cfPath: normalizedPath,
-        variation: `${variationname};ts=${Date.now()}`,
-      }),
-    };
+  // Query the persisted query directly on the right tier: the author instance in
+  // the UE (same-origin, session auth), the publish instance on the live page
+  // (CORS-enabled). No proxy needed.
+  const base = isAuthor ? aemauthorurl : aempublishurl;
+  const requestConfig = {
+    url: `${base}${PERSISTED_QUERY};path=${encodedPath};variation=${variationname};ts=${Date.now()}`,
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  };
 
   try {
     const response = await fetch(requestConfig.url, {
