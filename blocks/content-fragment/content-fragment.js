@@ -37,7 +37,11 @@ export default async function decorate(block) {
 
   // Block config cells (authored order): 1 CF path, 2 variation, 3 style, 4 alignment.
   const contentPath = block.querySelector(':scope div:nth-child(1) > div a')?.textContent?.trim();
-  const variationname = block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase()?.replace(' ', '_') || 'main';
+  let variationname = block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase()?.replace(/\s+/g, '_') || 'master';
+  // AEM's default variation is technically "master" (the UE labels it "Main").
+  // Passing "main" 404s the CF edit API and points data-aue-resource at a
+  // non-existent .../data/main node, which breaks inline editing in the UE.
+  if (variationname === 'main') variationname = 'master';
   const displayStyle = block.querySelector(':scope div:nth-child(3) > div')?.textContent?.trim()?.toLowerCase()?.replace(/\s+/g, '-') || 'image-top';
   const alignment = block.querySelector(':scope div:nth-child(4) > div')?.textContent?.trim()?.toLowerCase()?.replace(/\s+/g, '-') || 'text-left';
 
