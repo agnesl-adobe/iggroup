@@ -562,3 +562,42 @@
 @media (width >= 900px) {
   .content-fragment .cf-article-title { font-size: 48px; }
 }
+
+/* ----- Style-dropdown layout variants (default/top, bottom, left, right) ----- */
+/* Consistent internal spacing for the text column in every layout */
+.content-fragment .cf-article-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Image Bottom — media rendered after the text */
+.content-fragment .cf-article.image-bottom .cf-article-media {
+  order: 2;
+  margin: 4px 0 0;
+}
+
+/* Image Left / Image Right — media beside the text on wider screens.
+   (default / image-top / image-bottom stay a single ~720px reading column.) */
+@media (width >= 900px) {
+  .content-fragment .cf-article.image-left,
+  .content-fragment .cf-article.image-right {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1080px;
+  }
+
+  .content-fragment .cf-article.image-left .cf-article-media,
+  .content-fragment .cf-article.image-right .cf-article-media {
+    flex: 0 0 44%;
+    margin: 0;
+    position: sticky;
+    top: 24px;
+  }
+
+  .content-fragment .cf-article.image-right .cf-article-media {
+    order: 2;
+  }
+}
