@@ -3,3 +3,7 @@ mountpoints:
     url: "https://author-p179457-e1900808.adobeaemcloud.com/bin/franklin.delivery/agnesl-adobe/iggroup/main"
     type: "markup"
     suffix: ".html"
+  # Only the /article page is authored in da.live (Document Authoring); the rest
+  # of the site stays on AEM (the mount above). This per-path mount does not
+  # affect any other page.
+  /article: "https://content.da.live/agnesl-adobe/iggroup/article"
