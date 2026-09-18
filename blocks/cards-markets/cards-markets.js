@@ -11,10 +11,25 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const ul = document.createElement('ul');
 
+  // Bare config-field values that may leak into content as their own cell
+  // (the card model carries a `ctastyle` select whose value renders as a lone
+  // "button"/"button-secondary"/"button-dark" text cell). Drop these so they
+  // don't show up as card copy.
+  const CONFIG_TOKEN = /^(button|button-secondary|button-dark|true|false|default)$/i;
+
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
+
+    // Remove empty cells and cells that are just a config token, so they don't
+    // render as card body text.
+    [...li.children].forEach((div) => {
+      const txt = div.textContent.trim();
+      if ((!txt && !div.querySelector('img, picture, a')) || CONFIG_TOKEN.test(txt)) {
+        div.remove();
+      }
+    });
 
     [...li.children].forEach((div, index) => {
       if (index === 0) {
