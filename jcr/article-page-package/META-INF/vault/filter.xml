@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!-- Replace the article-page node with the authored article template
+         (native title/text/image components, editable in the UE). Scoped to only
+         this page. -->
+    <filter root="/content/iggroup/article-page" mode="replace"/>
+</workspaceFilter>
