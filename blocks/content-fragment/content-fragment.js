@@ -120,15 +120,23 @@ export default async function decorate(block) {
     const itemId = `urn:aemconnection:${contentPath}/jcr:content/data/${variationname}`;
     block.setAttribute('data-aue-type', 'container');
 
-    const meta = [author && `<span class="cf-article-author">${author}</span>`, publishDate && `<time class="cf-article-date">${publishDate}</time>`]
-      .filter(Boolean).join('<span class="cf-article-dot">·</span>');
+    // Reading time estimate from the body word count (~200 wpm).
+    const words = (item.mainContent?.plaintext || '').trim().split(/\s+/).filter(Boolean).length;
+    const readMins = words ? Math.max(1, Math.round(words / 200)) : 0;
+
+    // Byline: "By <author> | <date> | <n> min read" (matches the article template).
+    const meta = [
+      author && `By <span class="cf-article-author">${author}</span>`,
+      publishDate && `<time class="cf-article-date">${publishDate}</time>`,
+      readMins && `${readMins} min read`,
+    ].filter(Boolean).join('<span class="cf-article-dot">|</span>');
 
     block.innerHTML = `
       <article class="cf-article ${displayStyle} ${alignment}" data-aue-resource="${itemId}" data-aue-label="${title || 'Article'}" data-aue-type="reference" data-aue-filter="contentfragment">
         ${imgUrl ? `<div class="cf-article-media" data-aue-prop="mainImage" data-aue-label="Main image" data-aue-type="media"><img src="${imgUrl}" alt="${title}" loading="eager"></div>` : ''}
         <div class="cf-article-body">
+          ${subtitle ? `<p class="cf-article-eyebrow" data-aue-prop="subtitle" data-aue-label="Subtitle" data-aue-type="text">${subtitle}</p>` : ''}
           <h1 class="cf-article-title" data-aue-prop="title" data-aue-label="Title" data-aue-type="text">${title}</h1>
-          ${subtitle ? `<p class="cf-article-subtitle" data-aue-prop="subtitle" data-aue-label="Subtitle" data-aue-type="text">${subtitle}</p>` : ''}
           ${meta ? `<p class="cf-article-meta">${meta}</p>` : ''}
           ${summary ? `<p class="cf-article-summary" data-aue-prop="summary" data-aue-label="Summary" data-aue-type="text">${summary}</p>` : ''}
           <div class="cf-article-content" data-aue-prop="mainContent" data-aue-label="Main content" data-aue-type="richtext">${contentHtml}</div>
