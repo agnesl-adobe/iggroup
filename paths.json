@@ -10,6 +10,8 @@
     "/content/iggroup/language-masters/ja:/ja",
     "/content/iggroup/language-masters/de/:/de/",
     "/content/iggroup/language-masters/de:/de",
+    "/content/iggroup/language-masters/sv/:/sv/",
+    "/content/iggroup/language-masters/sv:/sv",
     "/content/iggroup/article-page:/article-page",
     "/content/iggroup/configuration:/.helix/config.json",
     "/content/iggroup/metadata:/metadata.json",

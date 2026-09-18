@@ -445,6 +445,13 @@ export default async function decorate(block) {
   const langCode = getLanguage();
   console.log("langCode :"+langCode);
 
+  // Localized UI strings for the code-level fallback nav, utility bar, CTA and
+  // risk disclaimer. Looked up from the per-language placeholders sheet
+  // (/language-masters/<lang>/placeholders.json) so the header translates with
+  // the site; falls back to English when a key or sheet is missing.
+  const ph = await fetchPlaceholders(`${PATH_PREFIX}/${langCode}`);
+  const t = (key, fallback) => (ph && ph[key]) || fallback;
+
    const isAuthor = isAuthorEnvironment();
     let navPath =`/${langCode}/nav`;
   
@@ -479,17 +486,17 @@ export default async function decorate(block) {
       <div class="section nav-sections">
         <div class="default-content-wrapper">
           <ul>
-            <li><a href="https://www.ig.com/en/markets-to-trade">Trading</a></li>
-            <li><a href="https://www.ig.com/en/trading-platforms">Trading platforms</a></li>
-            <li><a href="https://www.ig.com/en/about-us">About us</a></li>
-            <li><a href="https://www.ig.com/en/ig-financial-markets">Market analysis</a></li>
-            <li><a href="https://www.ig.com/en/trading-skills">Learning</a></li>
+            <li><a href="https://www.ig.com/en/markets-to-trade">${t('navTrading', 'Trading')}</a></li>
+            <li><a href="https://www.ig.com/en/trading-platforms">${t('navTradingPlatforms', 'Trading platforms')}</a></li>
+            <li><a href="https://www.ig.com/en/about-us">${t('navAboutUs', 'About us')}</a></li>
+            <li><a href="https://www.ig.com/en/ig-financial-markets">${t('navMarketAnalysis', 'Market analysis')}</a></li>
+            <li><a href="https://www.ig.com/en/trading-skills">${t('navLearning', 'Learning')}</a></li>
           </ul>
         </div>
       </div>
       <div class="section nav-tools">
         <div class="default-content-wrapper">
-          <p class="button-container"><a class="button" href="/en/application-form">Create live account</a></p>
+          <p class="button-container"><a class="button" href="/en/application-form">${t('ctaCreateLiveAccount', 'Create live account')}</a></p>
           <span class="nav-search" role="button" tabindex="0" aria-label="Search">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg>
           </span>
@@ -645,18 +652,18 @@ export default async function decorate(block) {
   // IG-style black risk-warning strip at the very top
   const disclaimerBar = document.createElement('div');
   disclaimerBar.className = 'header-disclaimer';
-  disclaimerBar.innerHTML = '<div class="header-disclaimer-inner">OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider.</div>';
+  disclaimerBar.innerHTML = `<div class="header-disclaimer-inner">${t('riskDisclaimer', 'OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider.')}</div>`;
   navWrapper.append(disclaimerBar);
   // IG-style black utility strip above the main nav
   const utilityBar = document.createElement('div');
   utilityBar.className = 'header-utility';
   utilityBar.innerHTML = `
     <div class="header-utility-inner">
-      <span class="util-left">Personal</span>
+      <span class="util-left">${t('utilPersonal', 'Personal')}</span>
       <span class="util-right">
-        <a href="/en/academy">Academy</a>
-        <a href="/en/help">Help</a>
-        <a class="util-login" href="/en/login">Log in</a>
+        <a href="/en/academy">${t('utilAcademy', 'Academy')}</a>
+        <a href="/en/help">${t('utilHelp', 'Help')}</a>
+        <a class="util-login" href="/en/login">${t('utilLogin', 'Log in')}</a>
       </span>
     </div>`;
   navWrapper.append(utilityBar);

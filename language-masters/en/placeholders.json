@@ -1,0 +1,19 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    { "Key": "nav-trading", "Text": "Trading" },
+    { "Key": "nav-trading-platforms", "Text": "Trading platforms" },
+    { "Key": "nav-about-us", "Text": "About us" },
+    { "Key": "nav-market-analysis", "Text": "Market analysis" },
+    { "Key": "nav-learning", "Text": "Learning" },
+    { "Key": "cta-create-live-account", "Text": "Create live account" },
+    { "Key": "cta-create-demo-account", "Text": "Create demo account" },
+    { "Key": "util-personal", "Text": "Personal" },
+    { "Key": "util-academy", "Text": "Academy" },
+    { "Key": "util-help", "Text": "Help" },
+    { "Key": "util-login", "Text": "Log in" },
+    { "Key": "risk-disclaimer", "Text": "OTC leveraged products, including CFDs, are complex investments, which come with a high risk of losing money rapidly due to leverage. 70% of retail client account lose money when trading OTC leveraged products, including CFDs, with this investment provider." }
+  ]
+}

@@ -1,4 +1,5 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, fetchPlaceholders } from '../../scripts/aem.js';
+import { getLanguage, PATH_PREFIX } from '../../scripts/utils.js';
 
 /**
  * hero-product — product-intro hero.
@@ -18,8 +19,13 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
  *
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const cells = [...block.querySelectorAll(':scope > div > div')];
+
+  // Localized CTA labels via the per-language placeholders sheet, so the buttons
+  // translate with the site (falls back to English when a key is missing).
+  const ph = await fetchPlaceholders(`${PATH_PREFIX}/${getLanguage()}`);
+  const t = (key, fallback) => (ph && ph[key]) || fallback;
 
   const IMG_URL = /\.(png|jpe?g|gif|webp|svg|avif)(\?|#|$)|\/is\/image\/|jcr:content\/renditions/i;
   const isImageLink = (a) => a && IMG_URL.test(a.getAttribute('href') || '');
@@ -129,8 +135,8 @@ export default function decorate(block) {
       // the imported link text is the raw path ("application form"/"demo account").
       ctaRow.querySelectorAll('a').forEach((a) => {
         const href = a.getAttribute('href') || '';
-        if (/application-form/.test(href)) a.textContent = 'Create live account';
-        else if (/demo-account/.test(href)) a.textContent = 'Create demo account';
+        if (/application-form/.test(href)) a.textContent = t('ctaCreateLiveAccount', 'Create live account');
+        else if (/demo-account/.test(href)) a.textContent = t('ctaCreateDemoAccount', 'Create demo account');
       });
     }
 

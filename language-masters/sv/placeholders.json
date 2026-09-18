@@ -1,0 +1,19 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    { "Key": "nav-trading", "Text": "Handel" },
+    { "Key": "nav-trading-platforms", "Text": "Handelsplattformar" },
+    { "Key": "nav-about-us", "Text": "Om oss" },
+    { "Key": "nav-market-analysis", "Text": "Marknadsanalys" },
+    { "Key": "nav-learning", "Text": "Utbildning" },
+    { "Key": "cta-create-live-account", "Text": "Öppna livekonto" },
+    { "Key": "cta-create-demo-account", "Text": "Öppna demokonto" },
+    { "Key": "util-personal", "Text": "Privat" },
+    { "Key": "util-academy", "Text": "Akademin" },
+    { "Key": "util-help", "Text": "Hjälp" },
+    { "Key": "util-login", "Text": "Logga in" },
+    { "Key": "risk-disclaimer", "Text": "OTC-hävstångsprodukter, inklusive CFD:er, är komplexa investeringar som medför en hög risk att snabbt förlora pengar på grund av hävstång. 70 % av icke-professionella kunder förlorar pengar när de handlar med OTC-hävstångsprodukter, inklusive CFD:er, hos denna leverantör." }
+  ]
+}
