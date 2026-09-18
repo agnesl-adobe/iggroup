@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "Trading"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "Plataformas de trading"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "Sobre nosotros"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "Análisis de mercado"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "Formación"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "Abrir cuenta real"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "Abrir cuenta demo"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "Particular"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "Academia"
+    },
+    {
+      "Key": "util-help",
+      "Text": "Ayuda"
+    },
+    {
+      "Key": "util-login",
+      "Text": "Iniciar sesión"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "Los productos apalancados OTC, incluidos los CFD, son inversiones complejas que conllevan un alto riesgo de perder dinero rápidamente debido al apalancamiento. El 70 % de las cuentas de clientes minoristas pierden dinero al operar con productos apalancados OTC, incluidos los CFD, con este proveedor de inversión."
+    }
+  ]
+}

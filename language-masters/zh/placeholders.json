@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "交易"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "交易平台"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "关于我们"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "市场分析"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "学习"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "开设真实账户"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "开设模拟账户"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "个人"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "学院"
+    },
+    {
+      "Key": "util-help",
+      "Text": "帮助"
+    },
+    {
+      "Key": "util-login",
+      "Text": "登录"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "场外杠杆产品（包括差价合约）属于复杂投资，因杠杆作用而存在快速亏损的高风险。在本投资提供商处交易场外杠杆产品（包括差价合约）时，70% 的零售客户账户会出现亏损。"
+    }
+  ]
+}

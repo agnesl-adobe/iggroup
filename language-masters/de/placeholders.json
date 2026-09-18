@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "Handel"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "Handelsplattformen"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "Über uns"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "Marktanalyse"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "Lernen"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "Live-Konto eröffnen"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "Demokonto eröffnen"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "Privat"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "Akademie"
+    },
+    {
+      "Key": "util-help",
+      "Text": "Hilfe"
+    },
+    {
+      "Key": "util-login",
+      "Text": "Anmelden"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "OTC-Hebelprodukte, einschließlich CFDs, sind komplexe Anlagen, die aufgrund der Hebelwirkung ein hohes Risiko bergen, schnell Geld zu verlieren. 70 % der Privatkundenkonten verlieren Geld beim Handel mit OTC-Hebelprodukten, einschließlich CFDs, bei diesem Anbieter."
+    }
+  ]
+}

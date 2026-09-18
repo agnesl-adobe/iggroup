@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "取引"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "取引プラットフォーム"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "会社概要"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "マーケット分析"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "学習"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "ライブ口座開設"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "デモ口座開設"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "個人"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "アカデミー"
+    },
+    {
+      "Key": "util-help",
+      "Text": "ヘルプ"
+    },
+    {
+      "Key": "util-login",
+      "Text": "ログイン"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "CFDを含むOTCレバレッジ商品は複雑な投資であり、レバレッジにより急速に損失を被る高いリスクを伴います。本投資プロバイダーでCFDを含むOTCレバレッジ商品を取引する場合、個人顧客口座の70%が損失を出しています。"
+    }
+  ]
+}

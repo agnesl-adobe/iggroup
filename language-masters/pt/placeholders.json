@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "Trading"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "Plataformas de trading"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "Sobre nós"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "Análise de mercado"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "Formação"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "Abrir conta real"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "Abrir conta demo"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "Particular"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "Academia"
+    },
+    {
+      "Key": "util-help",
+      "Text": "Ajuda"
+    },
+    {
+      "Key": "util-login",
+      "Text": "Iniciar sessão"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "Os produtos alavancados OTC, incluindo CFDs, são investimentos complexos que acarretam um risco elevado de perder dinheiro rapidamente devido à alavancagem. 70% das contas de clientes não profissionais perdem dinheiro ao negociar produtos alavancados OTC, incluindo CFDs, com este fornecedor de investimento."
+    }
+  ]
+}

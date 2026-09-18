@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "Trading"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "Plateformes de trading"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "À propos"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "Analyse de marché"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "Formation"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "Ouvrir un compte réel"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "Ouvrir un compte démo"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "Particulier"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "Académie"
+    },
+    {
+      "Key": "util-help",
+      "Text": "Aide"
+    },
+    {
+      "Key": "util-login",
+      "Text": "Se connecter"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "Les produits à effet de levier de gré à gré, y compris les CFD, sont des investissements complexes qui comportent un risque élevé de perte rapide en raison de l'effet de levier. 70 % des comptes de clients particuliers perdent de l'argent en négociant des produits à effet de levier de gré à gré, y compris des CFD, auprès de ce fournisseur."
+    }
+  ]
+}

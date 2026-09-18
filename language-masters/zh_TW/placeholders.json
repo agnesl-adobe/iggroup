@@ -1,0 +1,55 @@
+{
+  "total": 12,
+  "offset": 0,
+  "limit": 12,
+  "data": [
+    {
+      "Key": "nav-trading",
+      "Text": "交易"
+    },
+    {
+      "Key": "nav-trading-platforms",
+      "Text": "交易平台"
+    },
+    {
+      "Key": "nav-about-us",
+      "Text": "關於我們"
+    },
+    {
+      "Key": "nav-market-analysis",
+      "Text": "市場分析"
+    },
+    {
+      "Key": "nav-learning",
+      "Text": "學習"
+    },
+    {
+      "Key": "cta-create-live-account",
+      "Text": "開設真實帳戶"
+    },
+    {
+      "Key": "cta-create-demo-account",
+      "Text": "開設模擬帳戶"
+    },
+    {
+      "Key": "util-personal",
+      "Text": "個人"
+    },
+    {
+      "Key": "util-academy",
+      "Text": "學院"
+    },
+    {
+      "Key": "util-help",
+      "Text": "說明"
+    },
+    {
+      "Key": "util-login",
+      "Text": "登入"
+    },
+    {
+      "Key": "risk-disclaimer",
+      "Text": "場外槓桿產品（包括差價合約）屬於複雜投資，因槓桿作用而具有快速虧損的高風險。在本投資提供商處交易場外槓桿產品（包括差價合約）時，70% 的零售客戶帳戶會出現虧損。"
+    }
+  ]
+}
